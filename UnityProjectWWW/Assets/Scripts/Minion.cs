@@ -1,0 +1,55 @@
+﻿using UnityEngine;
+using System.Collections;
+
+/* Corey Underdown */
+
+public class Minion : MonoBehaviour {
+	// kypemmanuel@bigpond.com
+	// 0419586718
+
+	[SerializeField] float pickUpDistance;
+	[SerializeField] LayerMask layersToCheck;
+	GameObject currentBox;
+
+	void Start () {
+	
+	}
+
+	void Update () {
+		Debug.DrawLine(transform.position, transform.position + transform.forward * pickUpDistance, Color.red);
+		if(currentBox != null){
+			UpdateBox();
+		}else{
+			CheckBox();
+		}
+	}
+
+	void CheckBox(){
+		RaycastHit hit;
+
+		if(Physics.Raycast(transform.position, transform.forward, out hit, pickUpDistance, layersToCheck)){
+			if(Input.GetMouseButtonDown(0) && hit.transform.tag == "HeavyBox" && currentBox == null)
+				PickUp(hit.transform.gameObject);
+		}
+	}
+
+	void UpdateBox(){
+		currentBox.transform.position = transform.position + transform.forward * 2;
+		if(Input.GetMouseButtonDown(0)){
+			DropBox();
+		}
+	}
+
+	void DropBox(){
+		currentBox.transform.parent = null;
+		currentBox.rigidbody.useGravity = true;
+		currentBox = null;
+	}
+
+	void PickUp(GameObject go){
+		currentBox = go;
+		currentBox.transform.parent = gameObject.transform;
+		currentBox.transform.position = transform.position + transform.forward * 2;
+		currentBox.GetComponent<Rigidbody>().useGravity = false;
+	}
+}
