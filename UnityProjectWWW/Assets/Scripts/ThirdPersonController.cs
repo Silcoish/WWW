@@ -45,6 +45,8 @@ public float inAirControlAcceleration= 3.0f;
 // How high do we jump when pressing jump and letting go immediately
 public float jumpHeight= 0.5f;
 
+public float bounceHeight; // the height when bouncing off a bouncy box
+
 // The gravity for the character
 public float gravity= 20.0f;
 // The gravity in controlled descent mode
@@ -396,6 +398,12 @@ void Update ()
 
 void OnControllerColliderHit ( ControllerColliderHit hit   )
 {
+		//jumping off the bouncy box
+		if(hit.collider.tag == "BouncyBox")
+		{
+			verticalSpeed = Mathf.Sqrt(2 * bounceHeight * gravity);
+            Vector3 movement= moveDirection * moveSpeed + new Vector3 (0, verticalSpeed, 0) + inAirVelocity;
+        }
 //	Debug.DrawRay(hit.point, hit.normal);
 	if (hit.moveDirection.y > 0.01f) 
 		return;

@@ -28,7 +28,7 @@ public class BridgeMovement : MonoBehaviour {
 		if(goingDown)
 		{
 			//lowers the bridge
-			if(thisSide.eulerAngles.z >= 270)
+			if(thisSide.eulerAngles.z >= 268)
 			{
 				thisSide.Rotate (Vector3.back * -speed * Time.deltaTime);
 				otherSide.Rotate (Vector3.back * -speed * Time.deltaTime);
