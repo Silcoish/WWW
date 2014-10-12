@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\ThirdPersonCamera.cs" />
      <Compile Include="Assets\Scripts\ThirdPersonController.cs" />
      <Compile Include="Assets\Scripts\TrialBridgeTrigger.cs" />
+     <Compile Include="Assets\Scripts\test.cs" />
      <None Include="Assets\Characters\Third Person Character\Third Person Character Guidelines.txt" />
      <None Include="Assets\Characters\First Person Character\First Person Character Guidelines.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
