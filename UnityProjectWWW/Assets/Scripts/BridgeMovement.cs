@@ -7,7 +7,7 @@ public class BridgeMovement : MonoBehaviour {
 	public bool goingDown = false;
 	public bool goingUp = false;
 	public float speed;
-	public float rotateBridge;
+
 
 	public Transform thisSide;  //Closer side of the bridge
 	public Transform otherSide; // other side of the bridge to drag down
@@ -16,12 +16,8 @@ public class BridgeMovement : MonoBehaviour {
 	public float bridgeReturnTimer;
 	public float timeToRetrunTheBridge;
 
-	// Use this for initialization
-	void Start () {
-	rotateBridge = 270;
-	}
+
 	
-	// Update is called once per frame
 	void Update () 
 	{
 		bridgeReturnTimer += Time.deltaTime;
@@ -39,25 +35,22 @@ public class BridgeMovement : MonoBehaviour {
 				goingDown = false;
 				bridgeReturnTimer = 0;
 				startTheTimer = true;
-				Debug.Log ("start the timer");
 			}
 		}
 
 		if(startTheTimer)
 		{
+			//timer to raise the bridge
 			if(bridgeReturnTimer >= timeToRetrunTheBridge)
 			{
 				goingUp = true;
 				startTheTimer = false;
-				Debug.Log ("stop the timer");
-
 			}
 		}
 
 		if (goingUp)
 		{
-			Debug.Log ("going up");
-
+			//raises the bridge
 			if(thisSide.eulerAngles.z >= 270 || thisSide.eulerAngles.z <= 2)
 			{
 				thisSide.Rotate (Vector3.back * speed * Time.deltaTime);
@@ -68,16 +61,12 @@ public class BridgeMovement : MonoBehaviour {
 			{
 				goingUp = false;
 			}
-
 		}
-
-
 	}
 
 	//Message recieved from the trigger and turning the goingDown bool to true to lower the bridges
 	public void LowerBridge()
 	{
-//		Debug.Log("GoingDown recieved");
 		goingDown = true;
 	}
 
