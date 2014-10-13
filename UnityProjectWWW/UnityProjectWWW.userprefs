@@ -1,21 +1,8 @@
 ﻿<Properties>
-<<<<<<< HEAD
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\test.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameDirector.cs">
     <Files>
-      <File FileName="Assets\Characters\First Person Character\Scripts\FirstPersonCharacter.cs" Line="1" Column="1" />
-      <File FileName="Assets\Characters\First Person Character\Scripts\SimpleMouseRotator.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\test.cs" Line="7" Column="36" />
-=======
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Minion.cs">
-    <Files>
-      <File FileName="Assets\Scripts\GameDirector.cs" Line="77" Column="5" />
-      <File FileName="Assets\Scripts\MinionMini.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Minion.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\TrialBridgeTrigger.cs" Line="8" Column="2" />
-      <File FileName="Assets\Scripts\BridgeMovement.cs" Line="65" Column="1" />
->>>>>>> origin/master
+      <File FileName="Assets\Scripts\GameDirector.cs" Line="100" Column="45" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

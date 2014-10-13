@@ -55,8 +55,10 @@
      <Compile Include="Assets\Scripts\BridgeMovement.cs" />
      <Compile Include="Assets\Scripts\Button.cs" />
      <Compile Include="Assets\Scripts\Door.cs" />
+     <Compile Include="Assets\Scripts\GameDirector.cs" />
      <Compile Include="Assets\Scripts\Minion.cs" />
      <Compile Include="Assets\Scripts\MinionMini.cs" />
+     <Compile Include="Assets\Scripts\PlayerCamera.cs" />
      <Compile Include="Assets\Scripts\PressurePlate.cs" />
      <Compile Include="Assets\Scripts\ThirdPersonCamera.cs" />
      <Compile Include="Assets\Scripts\ThirdPersonController.cs" />

@@ -18,7 +18,7 @@ public class MinionMini : MonoBehaviour {
 		
 		if(Physics.Raycast(transform.position, transform.forward, out hit, rayDistance, layersToCheck))
 		{
-			if(Input.GetMouseButtonDown(0) && hit.transform.tag == "Button")
+			if(Input.GetButtonDown("Fire1") && hit.transform.tag == "Button")
 			{
 				hit.transform.gameObject.GetComponent<Button>().Activate();
 			}

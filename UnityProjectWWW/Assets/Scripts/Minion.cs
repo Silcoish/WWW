@@ -28,14 +28,14 @@ public class Minion : MonoBehaviour {
 		RaycastHit hit;
 
 		if(Physics.Raycast(transform.position, transform.forward, out hit, pickUpDistance, layersToCheck)){
-			if(Input.GetMouseButtonDown(0) && hit.transform.tag == "HeavyBox" && currentBox == null)
+			if(Input.GetButtonDown("Fire1") && hit.transform.tag == "HeavyBox" && currentBox == null)
 				PickUp(hit.transform.gameObject);
 		}
 	}
 
 	void UpdateBox(){
 		currentBox.transform.position = transform.position + transform.forward * 2;
-		if(Input.GetMouseButtonDown(0)){
+		if(Input.GetButtonDown("Fire1")){
 			DropBox();
 		}
 	}

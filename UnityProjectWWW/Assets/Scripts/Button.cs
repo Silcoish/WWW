@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Button : MonoBehaviour {
 
-	private bool isActivated = false;
+	[SerializeField] bool isActivated = false;
 	[SerializeField] bool isDoorButton = false;
 	[SerializeField] bool isBridgeButton = false;
 	[SerializeField] GameObject puzzleElement;
