@@ -28,7 +28,7 @@ public class Minion : MonoBehaviour {
 		RaycastHit hit;
 
 		if(Physics.Raycast(transform.position, transform.forward, out hit, pickUpDistance, layersToCheck)){
-			if(Input.GetButtonDown("Fire1") && hit.transform.tag == "HeavyBox" && currentBox == null)
+			if(Input.GetButtonDown("Fire1") && (hit.transform.tag == "HeavyBox" || hit.transform.tag == "BouncyBox" || hit.transform.tag == "NormalBox") && currentBox == null)
 				PickUp(hit.transform.gameObject);
 		}
 	}

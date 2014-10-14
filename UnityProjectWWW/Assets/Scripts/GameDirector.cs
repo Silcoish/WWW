@@ -15,17 +15,30 @@ public class GameDirector : MonoBehaviour {
 
 	private bool onStart;
 
+//	public float squareRange;
+//	public float angle;
+//
+//	public bool canChangeStrong;
+//	public bool canChangeMini;
+//	public bool canChangeWizzard;
+
 	 
 	void Awake ()
 	{
 		statusOfPlayer = false;
 		ActivateStrongMinion (statusOfPlayer);
 		ActivateMiniMinion (statusOfPlayer);
+//		canChangeWizzard = true;
+//		canChangeStrong = false;
+//		canChangeMini = false;
 	}
 
 	// Use this for initialization
 	void Start () {
 //		onStart = true;
+
+		/*    if((_transform.position - _player.position).sqrMagnitude < squareRange &&
+    (Vector3.Angle(player.transform.position - _transform.position, transform.forward) <= angle)){}*/
 
 	}
 	
@@ -37,15 +50,62 @@ public class GameDirector : MonoBehaviour {
 //
 //			onStart = false;
 //		}
-		if(Input.GetKey(KeyCode.Keypad1))
+//		if (playerWizzardCamera.enabled == true)
+//		{
+//			if ((playerWizzard.transform.position - playerStrong.transform.position).sqrMagnitude < squareRange &&
+//				(Vector3.Angle (playerStrong.transform.position - playerWizzard.transform.position, transform.forward) <= angle)) 
+//			{
+//				canChangeStrong = true;
+//			}
+//			else
+//			{
+//				canChangeStrong = false;
+//			}
+//			if ((playerWizzard.transform.position - playerMini.transform.position).sqrMagnitude < squareRange &&
+//			    (Vector3.Angle (playerMini.transform.position - playerWizzard.transform.position, transform.forward) <= angle)) 
+//			{
+//				canChangeMini = true;
+//			}
+//			else
+//			{
+//				canChangeMini = false;
+//			}
+//		}
+
+//		if(playerStrongCamera.enabled == true)
+//		{
+//			if ((playerStrong.transform.position - playerWizzard.transform.position).sqrMagnitude < squareRange &&
+//			    (Vector3.Angle (playerWizzard.transform.position - playerStrong.transform.position, transform.forward) <= angle)) 
+//			{
+//				canChangeWizzard = true;
+//			}
+//			else
+//			{
+//				canChangeWizzard = false;
+//			}
+//		}
+//
+//		if(playerMiniCamera.enabled == true)
+//		{
+//			if ((playerMini.transform.position - playerWizzard.transform.position).sqrMagnitude < squareRange &&
+//			    (Vector3.Angle (playerWizzard.transform.position - playerMini.transform.position, transform.forward) <= angle)) 
+//			{
+//				canChangeWizzard = true;
+//			}
+//			else
+//			{
+//				canChangeWizzard = false;
+//			}
+//		}
+		if(Input.GetKey(KeyCode.Alpha1))
 		{
-			if(playerStrongCamera.enabled == true)
+			if(playerStrongCamera.enabled == true)// && canChangeWizzard)
 			{
 				statusOfPlayer = false;
 				ActivateStrongMinion (statusOfPlayer);
 
 			}
-			else if (playerMiniCamera.enabled == true)
+			else if (playerMiniCamera.enabled == true)// && canChangeWizzard)
 			{
 				statusOfPlayer = false;
 				ActivateMiniMinion (statusOfPlayer);
@@ -55,9 +115,9 @@ public class GameDirector : MonoBehaviour {
 			ActivateWizzard(statusOfPlayer);
 
 		}
-		if(Input.GetKey(KeyCode.Keypad2))
+		if(Input.GetKey(KeyCode.Alpha2))
 		{
-			if(playerWizzardCamera.enabled == true)
+			if(playerWizzardCamera.enabled == true)// && canChangeStrong)
 			{
 				statusOfPlayer = false;
 				ActivateWizzard(statusOfPlayer);
@@ -66,9 +126,9 @@ public class GameDirector : MonoBehaviour {
 			}
 
 		}
-		if(Input.GetKey(KeyCode.Keypad3))
+		if(Input.GetKey(KeyCode.Alpha3))
 		{
-			if(playerWizzardCamera.enabled == true)
+			if(playerWizzardCamera.enabled == true)// && canChangeMini)
 			{
 				statusOfPlayer = false;
 				ActivateWizzard(statusOfPlayer);
@@ -78,26 +138,29 @@ public class GameDirector : MonoBehaviour {
 
 		}
 	}
-	void ActivateWizzard (bool status)
+	void ActivateWizzard (bool statusOf)
 	{
-		playerWizzard.GetComponent<ThirdPersonController>().enabled = status;
-		playerWizzardCamera.GetComponent<PlayerCamera>().enabled = status;
-		playerWizzardCamera.enabled = status;
+		playerWizzard.GetComponent<ThirdPersonController>().enabled = statusOf;
+		playerWizzardCamera.GetComponent<PlayerCamera>().enabled = statusOf;
+		playerWizzardCamera.GetComponent<AudioListener>().enabled = statusOf;
+		playerWizzardCamera.enabled = statusOf;
 	}
 
-	void ActivateStrongMinion (bool status)
+	void ActivateStrongMinion (bool statusOf)
 	{
-		playerStrong.GetComponent<FirstPersonCharacter>().enabled = status;
-		playerStrong.GetComponent<SimpleMouseRotator>().enabled = status;
-		playerStrongCamera.GetComponent<SimpleMouseRotator>().enabled = status;
-		playerStrongCamera.enabled = status;
+		playerStrong.GetComponent<FirstPersonCharacter>().enabled = statusOf;
+		playerStrong.GetComponent<SimpleMouseRotator>().enabled = statusOf;
+		playerStrongCamera.GetComponent<SimpleMouseRotator>().enabled = statusOf;
+		playerStrongCamera.GetComponent<AudioListener>().enabled = statusOf;
+		playerStrongCamera.enabled = statusOf;
 	}
 
-	void ActivateMiniMinion (bool status)
+	void ActivateMiniMinion (bool statusOf)
 	{
-		playerMini.GetComponent<FirstPersonCharacter>().enabled = status;
-		playerMini.GetComponent<SimpleMouseRotator>().enabled = status;
-		playerMiniCamera.GetComponent<SimpleMouseRotator>().enabled = status;
-		playerMiniCamera.enabled = status;
+		playerMini.GetComponent<FirstPersonCharacter>().enabled = statusOf;
+		playerMini.GetComponent<SimpleMouseRotator>().enabled = statusOf;
+		playerMiniCamera.GetComponent<SimpleMouseRotator>().enabled = statusOf;
+		playerMiniCamera.GetComponent<AudioListener>().enabled = statusOf;
+		playerMiniCamera.enabled = statusOf;
 	}
 }

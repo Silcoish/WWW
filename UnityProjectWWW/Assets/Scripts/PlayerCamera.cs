@@ -6,9 +6,9 @@ public class PlayerCamera : MonoBehaviour {
 	
 	public Transform target;
 	// The distance in the x-z plane to the target
-	public float distance = 15;
+	public float distance = 3;
 	// the height we want the camera to be above the target
-	public float height = 5;
+	public float height = 1.5f;
 	// How much we
 	public float heightDamping = 3;
 	public float rotationDamping = 3;
