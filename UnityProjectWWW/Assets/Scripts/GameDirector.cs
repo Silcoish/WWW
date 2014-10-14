@@ -97,7 +97,7 @@ public class GameDirector : MonoBehaviour {
 //				canChangeWizzard = false;
 //			}
 //		}
-		if(Input.GetKey(KeyCode.Alpha1))
+		if(Input.GetButtonDown("PlayerButton"))
 		{
 			if(playerStrongCamera.enabled == true)// && canChangeWizzard)
 			{
@@ -115,7 +115,7 @@ public class GameDirector : MonoBehaviour {
 			ActivateWizzard(statusOfPlayer);
 
 		}
-		if(Input.GetKey(KeyCode.Alpha2))
+		if(Input.GetButtonDown("StrongMinion"))
 		{
 			if(playerWizzardCamera.enabled == true)// && canChangeStrong)
 			{
@@ -126,7 +126,7 @@ public class GameDirector : MonoBehaviour {
 			}
 
 		}
-		if(Input.GetKey(KeyCode.Alpha3))
+		if(Input.GetButtonDown("MiniMinion"))
 		{
 			if(playerWizzardCamera.enabled == true)// && canChangeMini)
 			{
