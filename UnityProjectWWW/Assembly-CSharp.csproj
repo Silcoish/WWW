@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\LoadLevel.cs" />
      <Compile Include="Assets\Scripts\Minion.cs" />
      <Compile Include="Assets\Scripts\MinionMini.cs" />
+     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\PlayerCamera.cs" />
      <Compile Include="Assets\Scripts\PressurePlate.cs" />
      <Compile Include="Assets\Scripts\StartGane.cs" />
