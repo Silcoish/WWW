@@ -11,12 +11,16 @@ public class Minion : MonoBehaviour {
 	[SerializeField] LayerMask layersToCheck;
 	GameObject currentBox;
 
+
 	void Start () {
-	
+
 	}
 
 	void Update () {
-		Debug.DrawLine(transform.position, transform.position + transform.forward * pickUpDistance, Color.red);
+//		Debug.DrawLine(transform.position, transform.position + transform.forward * pickUpDistance, Color.red);
+//		Debug.DrawLine(transform.position, Camera.main.ScreenPointToRay (Input.mousePosition).direction*100, Color.red);
+
+
 		if(currentBox != null){
 			UpdateBox();
 		}else{
@@ -27,7 +31,10 @@ public class Minion : MonoBehaviour {
 	void CheckBox(){
 		RaycastHit hit;
 
-		if(Physics.Raycast(transform.position, transform.forward, out hit, pickUpDistance, layersToCheck)){
+
+
+
+		if(Physics.Raycast(transform.position, Camera.main.ScreenPointToRay (Input.mousePosition).direction , out hit, pickUpDistance, layersToCheck)){
 			if(Input.GetButtonDown("Fire1") && (hit.transform.tag == "HeavyBox" || hit.transform.tag == "BouncyBox" || hit.transform.tag == "NormalBox") && currentBox == null)
 				PickUp(hit.transform.gameObject);
 		}

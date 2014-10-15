@@ -34,11 +34,11 @@ enum CharacterState {
 private CharacterState _characterState;
 
 // The speed when walking
-public float walkSpeed= 2.0f;
+public float walkSpeed= 4.0f;
 // after trotAfterSeconds of walking we trot with trotSpeed
-public float trotSpeed= 4.0f;
+public float trotSpeed= 6.0f;
 // when pressing "Fire3" button (cmd) we start running
-public float runSpeed= 6.0f;
+public float runSpeed= 8.0f;
 
 public float inAirControlAcceleration= 3.0f;
 

@@ -16,7 +16,7 @@ public class MinionMini : MonoBehaviour {
 	void CheckButton(){
 		RaycastHit hit;
 		
-		if(Physics.Raycast(transform.position, transform.forward, out hit, rayDistance, layersToCheck))
+		if(Physics.Raycast(transform.position, Camera.main.ScreenPointToRay (Input.mousePosition).direction, out hit, rayDistance, layersToCheck))
 		{
 			if(Input.GetButtonDown("Fire1") && hit.transform.tag == "Button")
 			{

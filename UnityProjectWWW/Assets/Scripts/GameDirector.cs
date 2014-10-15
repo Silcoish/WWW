@@ -99,6 +99,7 @@ public class GameDirector : MonoBehaviour {
 //		}
 		if(Input.GetButtonDown("PlayerButton"))
 		{
+
 			if(playerStrongCamera.enabled == true)// && canChangeWizzard)
 			{
 				statusOfPlayer = false;
