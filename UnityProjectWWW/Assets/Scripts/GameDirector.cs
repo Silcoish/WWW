@@ -138,6 +138,11 @@ public class GameDirector : MonoBehaviour {
 			}
 
 		}
+
+		if(Input.GetKeyDown(KeyCode.Escape))
+		{
+			Application.Quit();
+		}
 	}
 	void ActivateWizzard (bool statusOf)
 	{
