@@ -7,6 +7,6 @@ public class LoadLevel : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col)
 	{
-		Application.LoadLevel (id + 1);
+		Application.LoadLevel (id + 2);
 	}
 }

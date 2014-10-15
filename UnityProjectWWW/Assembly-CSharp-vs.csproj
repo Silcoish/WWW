@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\MinionMini.cs" />
      <Compile Include="Assets\Scripts\PlayerCamera.cs" />
      <Compile Include="Assets\Scripts\PressurePlate.cs" />
+     <Compile Include="Assets\Scripts\StartGane.cs" />
      <Compile Include="Assets\Scripts\ThirdPersonCamera.cs" />
      <Compile Include="Assets\Scripts\ThirdPersonController.cs" />
      <Compile Include="Assets\Scripts\TrialBridgeTrigger.cs" />

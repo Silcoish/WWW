@@ -17,7 +17,7 @@ public class EndLevelItem_Bouncy : MonoBehaviour {
 	void OnTriggerEnter(Collider col)
 	{
 		if(col.gameObject.tag == "Player"){
-			Application.LoadLevel(1);
+			Application.LoadLevel(2);
 		}
 
 
