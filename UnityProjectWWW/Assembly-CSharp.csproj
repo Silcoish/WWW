@@ -61,11 +61,12 @@
      <Compile Include="Assets\Scripts\LoadLevel.cs" />
      <Compile Include="Assets\Scripts\Minion.cs" />
      <Compile Include="Assets\Scripts\MinionMini.cs" />
+     <Compile Include="Assets\Scripts\MouseOrbitWalter.cs" />
      <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\PlayerCamera.cs" />
      <Compile Include="Assets\Scripts\PressurePlate.cs" />
+     <Compile Include="Assets\Scripts\SmoothLookAtWalter.cs" />
      <Compile Include="Assets\Scripts\StartGane.cs" />
-     <Compile Include="Assets\Scripts\ThirdPersonCamera.cs" />
      <Compile Include="Assets\Scripts\ThirdPersonController.cs" />
      <Compile Include="Assets\Scripts\TrialBridgeTrigger.cs" />
      <Compile Include="Assets\Scripts\test.cs" />

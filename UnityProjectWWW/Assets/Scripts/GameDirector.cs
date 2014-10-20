@@ -2,156 +2,160 @@
 using System.Collections;
 
 public class GameDirector : MonoBehaviour {
-
-
+	
+	
 	public GameObject playerWizzard;
 	public Camera playerWizzardCamera;
 	public GameObject playerStrong;
 	public Camera playerStrongCamera;
 	public GameObject playerMini;
 	public Camera playerMiniCamera;
-
+	
 	private bool statusOfPlayer;
-
+	
 	private bool onStart;
-
-//	public float squareRange;
-//	public float angle;
-//
-//	public bool canChangeStrong;
-//	public bool canChangeMini;
-//	public bool canChangeWizzard;
-
-	 
+	
+	
+	public bool canChangeStrong;
+	public bool canChangeMini;
+	public bool canChangeWizzard;
+	
+	public float sphereRadius;
+	public float rayDistance;
+	
+	
 	void Awake ()
 	{
 		statusOfPlayer = false;
 		ActivateStrongMinion (statusOfPlayer);
 		ActivateMiniMinion (statusOfPlayer);
-//		canChangeWizzard = true;
-//		canChangeStrong = false;
-//		canChangeMini = false;
-	}
-
-	// Use this for initialization
-	void Start () {
-//		onStart = true;
-
-		/*    if((_transform.position - _player.position).sqrMagnitude < squareRange &&
-    (Vector3.Angle(player.transform.position - _transform.position, transform.forward) <= angle)){}*/
-
+		MakeAllFalse();
 	}
 	
-	// Update is called once per frame
+	
+	void Start () {
+		
+	}
+	
 	void Update () 
 	{
-//		if(onStart)
-//		{
-//
-//			onStart = false;
-//		}
-//		if (playerWizzardCamera.enabled == true)
-//		{
-//			if ((playerWizzard.transform.position - playerStrong.transform.position).sqrMagnitude < squareRange &&
-//				(Vector3.Angle (playerStrong.transform.position - playerWizzard.transform.position, transform.forward) <= angle)) 
-//			{
-//				canChangeStrong = true;
-//			}
-//			else
-//			{
-//				canChangeStrong = false;
-//			}
-//			if ((playerWizzard.transform.position - playerMini.transform.position).sqrMagnitude < squareRange &&
-//			    (Vector3.Angle (playerMini.transform.position - playerWizzard.transform.position, transform.forward) <= angle)) 
-//			{
-//				canChangeMini = true;
-//			}
-//			else
-//			{
-//				canChangeMini = false;
-//			}
-//		}
-
-//		if(playerStrongCamera.enabled == true)
-//		{
-//			if ((playerStrong.transform.position - playerWizzard.transform.position).sqrMagnitude < squareRange &&
-//			    (Vector3.Angle (playerWizzard.transform.position - playerStrong.transform.position, transform.forward) <= angle)) 
-//			{
-//				canChangeWizzard = true;
-//			}
-//			else
-//			{
-//				canChangeWizzard = false;
-//			}
-//		}
-//
-//		if(playerMiniCamera.enabled == true)
-//		{
-//			if ((playerMini.transform.position - playerWizzard.transform.position).sqrMagnitude < squareRange &&
-//			    (Vector3.Angle (playerWizzard.transform.position - playerMini.transform.position, transform.forward) <= angle)) 
-//			{
-//				canChangeWizzard = true;
-//			}
-//			else
-//			{
-//				canChangeWizzard = false;
-//			}
-//		}
-		if(Input.GetButtonDown("PlayerButton"))
+		RaycastHit hit;
+		
+		
+		if (playerWizzardCamera.enabled == true)
 		{
-
-			if(playerStrongCamera.enabled == true)// && canChangeWizzard)
+			//sends out a sphere cast and is looking for the mini or heavy minions
+			Physics.SphereCast(playerWizzard.transform.position, sphereRadius, Camera.main.ScreenPointToRay (Input.mousePosition).direction , out hit, rayDistance);
+			if ((hit.transform.tag == "HeavyMinion"))
 			{
-				statusOfPlayer = false;
-				ActivateStrongMinion (statusOfPlayer);
-
+				//allows GUI to display that you can see the minion
+				canChangeStrong = true;
+				// can only change to the minion if he is in sight
+				if(Input.GetButtonDown("Fire3") && canChangeStrong)
+				{
+					statusOfPlayer = false;
+					ActivateWizzard(statusOfPlayer);
+					statusOfPlayer = true;
+					ActivateStrongMinion (statusOfPlayer);
+					MakeAllFalse();
+				}
 			}
-			else if (playerMiniCamera.enabled == true)// && canChangeWizzard)
+			else
 			{
-				statusOfPlayer = false;
-				ActivateMiniMinion (statusOfPlayer);
-
+				canChangeStrong = false;
 			}
-			statusOfPlayer = true;
-			ActivateWizzard(statusOfPlayer);
-
+			if (hit.transform.tag == "MiniMinion") 
+			{
+				//allows GUI to display that you can see the minion
+				canChangeMini = true;
+				if(Input.GetButtonDown("Fire3") && canChangeMini)
+				{
+					// can only change to the minion if he is in sight
+					statusOfPlayer = false;
+					ActivateWizzard(statusOfPlayer);
+					statusOfPlayer = true;
+					ActivateMiniMinion (statusOfPlayer);
+					MakeAllFalse();
+				}
+			}
+			else
+			{
+				canChangeMini = false;
+			}
 		}
-		if(Input.GetButtonDown("StrongMinion"))
+		
+		if(playerStrongCamera.enabled == true)
 		{
-			if(playerWizzardCamera.enabled == true)// && canChangeStrong)
+			Physics.SphereCast(playerStrong.transform.position, sphereRadius, Camera.main.ScreenPointToRay (Input.mousePosition).direction , out hit, rayDistance);
+			
+			if (hit.transform.tag == "Player") 
 			{
-				statusOfPlayer = false;
-				ActivateWizzard(statusOfPlayer);
-				statusOfPlayer = true;
-				ActivateStrongMinion (statusOfPlayer);
+				//allows GUI to display that you can see the minion
+				canChangeWizzard = true;
+				
+				if(Input.GetButtonDown("Fire3") && canChangeWizzard)
+				{
+					// can only change to the minion if he is in sight
+					statusOfPlayer = false;
+					ActivateStrongMinion(statusOfPlayer);
+					statusOfPlayer = true;
+					ActivateWizzard (statusOfPlayer);
+					MakeAllFalse();
+				}
 			}
-
+			else
+			{
+				canChangeWizzard = false;
+			}
 		}
-		if(Input.GetButtonDown("MiniMinion"))
+		
+		if(playerMiniCamera.enabled == true)
 		{
-			if(playerWizzardCamera.enabled == true)// && canChangeMini)
+			Physics.SphereCast(playerMini.transform.position, sphereRadius, Camera.main.ScreenPointToRay (Input.mousePosition).direction , out hit, rayDistance);
+			
+			if (hit.transform.tag == "Player") 
 			{
-				statusOfPlayer = false;
-				ActivateWizzard(statusOfPlayer);
-				statusOfPlayer = true;
-				ActivateMiniMinion (statusOfPlayer);
+				//allows GUI to display that you can see the minion
+				canChangeWizzard = true;
+				if(Input.GetButtonDown("Fire3") && canChangeWizzard)
+				{
+					// can only change to the minion if he is in sight
+					statusOfPlayer = false;
+					ActivateMiniMinion(statusOfPlayer);
+					statusOfPlayer = true;
+					ActivateWizzard (statusOfPlayer);
+					MakeAllFalse();
+				}
 			}
-
+			else
+			{
+				canChangeWizzard = false;
+			}
 		}
-
+		
+		
 		if(Input.GetKeyDown(KeyCode.Escape))
 		{
 			Application.Quit();
 		}
+	}
+	
+	void MakeAllFalse ()
+	{
+		canChangeMini = false;
+		canChangeStrong = false;
+		canChangeWizzard = false;
 	}
 	void ActivateWizzard (bool statusOf)
 	{
 		playerWizzard.GetComponent<ThirdPersonController>().enabled = statusOf;
 		playerWizzardCamera.GetComponent<PlayerCamera>().enabled = statusOf;
 		playerWizzardCamera.GetComponent<AudioListener>().enabled = statusOf;
+		playerWizzardCamera.GetComponent<SmoothLookAtWalter>().enabled = statusOf;
+		playerWizzardCamera.GetComponent<MouseOrbitWalter>().enabled = statusOf;
 		playerWizzardCamera.enabled = statusOf;
 	}
-
+	
 	void ActivateStrongMinion (bool statusOf)
 	{
 		playerStrong.GetComponent<FirstPersonCharacter>().enabled = statusOf;
@@ -160,7 +164,7 @@ public class GameDirector : MonoBehaviour {
 		playerStrongCamera.GetComponent<AudioListener>().enabled = statusOf;
 		playerStrongCamera.enabled = statusOf;
 	}
-
+	
 	void ActivateMiniMinion (bool statusOf)
 	{
 		playerMini.GetComponent<FirstPersonCharacter>().enabled = statusOf;
@@ -168,5 +172,26 @@ public class GameDirector : MonoBehaviour {
 		playerMiniCamera.GetComponent<SimpleMouseRotator>().enabled = statusOf;
 		playerMiniCamera.GetComponent<AudioListener>().enabled = statusOf;
 		playerMiniCamera.enabled = statusOf;
+	}
+	
+	void OnGUI()
+	{
+		if (canChangeStrong)
+		{
+			GUI.Box(new Rect(120,10,100,20), "Strong Minion");
+			
+		}
+		
+		if (canChangeMini)
+		{
+			GUI.Box(new Rect(230,10,100,20), "Mini Minion");
+			
+		}
+		
+		if (canChangeWizzard)
+		{
+			GUI.Box(new Rect(10,10,100,20), "Walter");
+			
+		}
 	}
 }
