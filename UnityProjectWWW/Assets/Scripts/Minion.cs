@@ -14,6 +14,9 @@ public class Minion : MonoBehaviour {
 	// edited by richard to include SphereCasting by minions .. time started 3.50 pm 20/10/14
 	[SerializeField] float sphereRadius ;
 	//*************
+
+	private bool showBox = false;
+
 	void Start () {
 
 	}
@@ -33,7 +36,13 @@ public class Minion : MonoBehaviour {
 	void CheckBox(){
 		RaycastHit hit;
 		// New Spherecasting code inserted by Richard at 3.52 pm 20/10/14
-		if(Physics.SphereCast(transform.position, sphereRadius, Camera.main.ScreenPointToRay (Input.mousePosition).direction , out hit, pickUpDistance)){
+		if(Physics.SphereCast(Camera.main.transform.position, sphereRadius, /*Camera.main.ScreenPointToRay (Input.mousePosition).direction*/ Camera.main.transform.forward , out hit, pickUpDistance)){
+			if(hit.transform.tag == "HeavyBox")
+				showBox = true;
+			else
+				showBox = false;
+
+
 			if(Input.GetButtonDown("Fire1") && (hit.transform.tag == "HeavyBox" || hit.transform.tag == "BouncyBox" || hit.transform.tag == "NormalBox") && currentBox == null)
 				PickUp(hit.transform.gameObject);
 		}
@@ -63,5 +72,11 @@ public class Minion : MonoBehaviour {
 		currentBox.transform.parent = gameObject.transform;
 		currentBox.transform.position = transform.position + transform.forward * 2;
 		currentBox.GetComponent<Rigidbody>().useGravity = false;
+	}
+	void OnGUI ()
+	{
+
+		if(showBox)
+			GUI.Box(new Rect(120,10,100,20), "BOX");
 	}
 }

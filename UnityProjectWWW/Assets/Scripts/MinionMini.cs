@@ -13,7 +13,7 @@ public class MinionMini : MonoBehaviour {
 	/// </summary>
 	
 	void Update () {
-		Debug.DrawLine(transform.position, transform.position + transform.forward * rayDistance, Color.red);
+		Debug.DrawLine(Camera.main.transform.position, Camera.main.transform.forward * rayDistance, Color.red);
 		CheckButton();
 	}
 	
@@ -25,7 +25,7 @@ public class MinionMini : MonoBehaviour {
 //		{
 
 		//Edited by richard 4.00pm 20/10/14 to include spherecast
-		if(Physics.SphereCast(transform.position, sphereRadius, Camera.main.ScreenPointToRay (Input.mousePosition).direction , out hit, rayDistance))
+		if(Physics.SphereCast(Camera.main.transform.position, sphereRadius,/* Camera.main.ScreenPointToRay (Input.mousePosition).direction*/ Camera.main.transform.forward , out hit, rayDistance))
 		{
 			// <> //
 
