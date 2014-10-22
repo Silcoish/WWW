@@ -7,7 +7,9 @@ public class Button : MonoBehaviour {
 	[SerializeField] bool isDoorButton = false;
 	[SerializeField] bool isBridgeButton = false;
 	[SerializeField] GameObject puzzleElement;
-	[SerializeField] AudioClip clickSound;
+	// index 0 = on noise
+	// index 1 = off noise
+	[SerializeField] AudioClip[] clickSound = new AudioClip[2];
 	Vector3 startPos, endPos;
 
 	void Start()
@@ -30,12 +32,12 @@ public class Button : MonoBehaviour {
 
 	public void Activate()
 	{
-		AudioSource.PlayClipAtPoint(clickSound, transform.position);
 		if(isActivated){
 			DeActivate();
 		}
 		else
 		{
+			AudioSource.PlayClipAtPoint(clickSound[0], transform.position);
 			isActivated = true;
 			if(isBridgeButton)
 			{
@@ -51,6 +53,7 @@ public class Button : MonoBehaviour {
 
 	public void DeActivate()
 	{
+		AudioSource.PlayClipAtPoint(clickSound[1], transform.position);
 		isActivated = false;
 
 		if(isDoorButton)
