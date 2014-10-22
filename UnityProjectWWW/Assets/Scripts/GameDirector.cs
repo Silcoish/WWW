@@ -24,12 +24,8 @@ public class GameDirector : MonoBehaviour {
 	public float rayDistance;
 
 
-	private bool isWalter = true;
 	//crosshair
 	private Rect position;
-	private Rect positionW;
-	public float offsetW;
-	public float offsetH;
 	public Texture2D crosshairTexture;
 
 	private int layermask;
@@ -68,7 +64,6 @@ public class GameDirector : MonoBehaviour {
 				{
 					statusOfPlayer = false;
 					ActivateWizzard(statusOfPlayer);
-					isWalter = false;
 					statusOfPlayer = true;
 					ActivateStrongMinion (statusOfPlayer);
 					MakeAllFalse();
@@ -87,7 +82,6 @@ public class GameDirector : MonoBehaviour {
 					// can only change to the minion if he is in sight
 					statusOfPlayer = false;
 					ActivateWizzard(statusOfPlayer);
-					isWalter = false;
 					statusOfPlayer = true;
 					ActivateMiniMinion (statusOfPlayer);
 					MakeAllFalse();
@@ -116,7 +110,6 @@ public class GameDirector : MonoBehaviour {
 					ActivateStrongMinion(statusOfPlayer);
 					statusOfPlayer = true;
 					ActivateWizzard (statusOfPlayer);
-					isWalter = true;
 					MakeAllFalse();
 				}
 			}
@@ -144,7 +137,6 @@ public class GameDirector : MonoBehaviour {
 					ActivateMiniMinion(statusOfPlayer);
 					statusOfPlayer = true;
 					ActivateWizzard (statusOfPlayer);
-					isWalter = true;
 					MakeAllFalse();
 				}
 			}
@@ -197,17 +189,7 @@ public class GameDirector : MonoBehaviour {
 	
 	void OnGUI()
 	{
-		if(isWalter)
-		{
-			positionW = new Rect (((Screen.width  + offsetW) - (crosshairTexture.width / 1.25f)) / 2, 
-			                      ((Screen.height + offsetH) - (crosshairTexture.height / 1.25f )) / 2, 
-			                      crosshairTexture.width, 
-			                      crosshairTexture.height);
-			GUI.DrawTexture(positionW, crosshairTexture);
-			
-		}
-		else
-			GUI.DrawTexture(position, crosshairTexture);
+		GUI.DrawTexture(position, crosshairTexture);
 
 		if (canChangeStrong)
 		{
