@@ -206,6 +206,8 @@ public class GameDirector : MonoBehaviour {
 			
 		}
 		else
+			GUI.DrawTexture(position, crosshairTexture);
+
 
 		if (canChangeStrong)
 		{
