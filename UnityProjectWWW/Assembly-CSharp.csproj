@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\PlayerCamera.cs" />
      <Compile Include="Assets\Scripts\PressurePlate.cs" />
+     <Compile Include="Assets\Scripts\ShowCursor.cs" />
      <Compile Include="Assets\Scripts\SmoothLookAtWalter.cs" />
      <Compile Include="Assets\Scripts\StartGane.cs" />
      <Compile Include="Assets\Scripts\ThirdPersonController.cs" />

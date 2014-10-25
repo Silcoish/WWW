@@ -38,6 +38,7 @@ public class GameDirector : MonoBehaviour {
 	
 	void Awake ()
 	{
+
 //		currentCamera = playerWizzardCamera;
 		statusOfPlayer = false;
 		ActivateStrongMinion (statusOfPlayer);
@@ -63,8 +64,10 @@ public class GameDirector : MonoBehaviour {
 		{
 
 			//sends out a sphere cast and is looking for the mini or heavy minions
-			Physics.SphereCast(playerWizzard.transform.position, sphereRadius, /*Camera.main.ScreenPointToRay (Input.mousePosition).direction */ playerWizzardCamera.transform.forward, out hit, rayDistance, glassLayer);
-			if ((hit.transform.tag == "HeavyMinion"))
+			bool didHit = Physics.SphereCast(playerWizzard.transform.position, sphereRadius, playerWizzardCamera.transform.forward  /*playerWizzardCamera.transform.forward*/, out hit, Mathf.Infinity, glassLayer);
+			Debug.DrawRay(playerWizzard.transform.position, playerWizzardCamera.ScreenPointToRay (Input.mousePosition).direction, Color.black);
+
+			if ((didHit && hit.transform.tag == "HeavyMinion"))
 			{
 				//allows GUI to display that you can see the minion
 				canChangeStrong = true;
@@ -83,7 +86,7 @@ public class GameDirector : MonoBehaviour {
 			{
 				canChangeStrong = false;
 			}
-			if (hit.transform.tag == "MiniMinion") 
+			if (didHit && hit.transform.tag == "MiniMinion") 
 			{
 				//allows GUI to display that you can see the minion
 				canChangeMini = true;
@@ -108,7 +111,9 @@ public class GameDirector : MonoBehaviour {
 		{
 			Ray ray = playerStrongCamera.ScreenPointToRay(Input.mousePosition);
 	//		Physics.SphereCast(/*playerStrong.transform.position*/ Camera.main.transform.position, sphereRadius, /*Camera.main.ScreenPointToRay (Input.mousePosition).direction */ Camera.main.transform.forward, out hit, rayDistance, layermask);
-			bool didHit = Physics.SphereCast(ray, sphereRadius, out hit, rayDistance, layermask);
+			bool didHit = Physics.SphereCast(ray, sphereRadius, out hit, Mathf.Infinity, layermask);
+			Debug.DrawRay(playerStrongCamera.transform.position, playerStrongCamera.ScreenPointToRay (Input.mousePosition).direction, Color.black);
+
 //			Debug.Log (hit.transform.tag);
 			if (didHit && hit.transform.tag == "Player") 
 			{
@@ -136,9 +141,8 @@ public class GameDirector : MonoBehaviour {
 		{
 			Ray ray = playerMiniCamera.ScreenPointToRay(Input.mousePosition);
 			//		Physics.SphereCast(/*playerStrong.transform.position*/ Camera.main.transform.position, sphereRadius, /*Camera.main.ScreenPointToRay (Input.mousePosition).direction */ Camera.main.transform.forward, out hit, rayDistance, layermask);
-			bool didHit = Physics.SphereCast(ray, sphereRadius, out hit, rayDistance, layermask);
-
-			Debug.DrawRay(Camera.main.transform.position, Camera.main.ScreenPointToRay (Input.mousePosition).direction, Color.black);
+			bool didHit = Physics.SphereCast(ray, sphereRadius, out hit, Mathf.Infinity, layermask);
+			Debug.DrawRay(playerMiniCamera.transform.position, playerMiniCamera.ScreenPointToRay (Input.mousePosition).direction, Color.black);
 			if (didHit && hit.transform.tag == "Player") 
 			{
 				//allows GUI to display that you can see the minion

@@ -19,7 +19,7 @@ public class MouseOrbitWalter : MonoBehaviour {
 	float y = 0.0f;
 	void Awake()
 	{
-
+		Screen.showCursor = false;
 
 	}
 	// Use this for initialization
