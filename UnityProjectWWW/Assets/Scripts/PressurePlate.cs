@@ -4,6 +4,7 @@ using System.Collections;
 public class PressurePlate : MonoBehaviour {
 
 	[SerializeField] bool isDoorPressurePlate;
+	[SerializeField] bool isBarricade;
 	[SerializeField] GameObject linkedObject;
 
 	Vector3 startPos;
@@ -31,6 +32,11 @@ public class PressurePlate : MonoBehaviour {
 					linkedObject.GetComponent<Door>().Open();
 					transform.position = endPos;
 					delayCounter = 0f;
+				}
+
+				if(isBarricade)
+				{
+					Destroy(linkedObject);
 				}
 			}
 		}

@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>E:/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>E:/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +52,7 @@
      <Compile Include="Assets\Characters\Third Person Character\Scripts\AICharacterControl.cs" />
      <Compile Include="Assets\Characters\Third Person Character\Scripts\ThirdPersonCharacter.cs" />
      <Compile Include="Assets\Characters\Third Person Character\Scripts\ThirdPersonUserControl.cs" />
+     <Compile Include="Assets\Clock\Scripts\Clock.cs" />
      <Compile Include="Assets\Scripts\BridgeMovement.cs" />
      <Compile Include="Assets\Scripts\Button.cs" />
      <Compile Include="Assets\Scripts\DoNotDestroy.cs" />
@@ -71,12 +72,12 @@
      <Compile Include="Assets\Scripts\ThirdPersonController.cs" />
      <Compile Include="Assets\Scripts\TrialBridgeTrigger.cs" />
      <Compile Include="Assets\Scripts\TutorialManager.cs" />
-     <Compile Include="Assets\Scripts\test.cs" />
      <Compile Include="Assets\TextMeshInspector.cs" />
+     <None Include="Assets\batteries\SciFi_Battery_Pack_free\SCI-fi battery pack FREE.txt" />
      <None Include="Assets\Characters\Third Person Character\Third Person Character Guidelines.txt" />
      <None Include="Assets\Characters\First Person Character\First Person Character Guidelines.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>E:/AA_Qantm_02_14/WWW_GitHub_Repo/WWW/UnityProjectWWW/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>D:/Users/Corey/Documents/GitHub/WWW/WWW/UnityProjectWWW/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
