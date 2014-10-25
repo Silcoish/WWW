@@ -56,8 +56,12 @@ public class GameDirector : MonoBehaviour {
 		layermask = LayerMask.NameToLayer ("Button") | LayerMask.NameToLayer ("Glass");
 		glassLayer = 1 << 10;
 		glassLayer = ~ glassLayer;
-		position = new Rect ((Screen.width - (crosshairTexture.width / 1.25f)) / 2, (Screen.height - crosshairTexture.height / 1.25f ) / 2, crosshairTexture.width, crosshairTexture.height);
-	}
+		position = new Rect (((Screen.width  + (offsetW/2)) - (crosshairTexture.width / 1.25f)) / 2, 
+		                     (Screen.height - crosshairTexture.height / 1.25f ) / 2, 
+		                     crosshairTexture.width, 
+		                     crosshairTexture.height);
+
+			}
 	
 	void Update () 
 	{
