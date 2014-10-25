@@ -76,7 +76,7 @@
      <None Include="Assets\Characters\Third Person Character\Third Person Character Guidelines.txt" />
      <None Include="Assets\Characters\First Person Character\First Person Character Guidelines.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>E:/AA_Qantm_02_14/Repo_backup/CurrentWIP/WWW/UnityProjectWWW/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>E:/AA_Qantm_02_14/WWW_GitHub_Repo/WWW/UnityProjectWWW/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

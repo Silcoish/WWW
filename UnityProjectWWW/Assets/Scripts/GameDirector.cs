@@ -35,6 +35,11 @@ public class GameDirector : MonoBehaviour {
 	private LayerMask layermask;
 	private int glassLayer;
 
+	public Texture walterTex;
+	public Texture strongMinionTex;
+	public Texture miniMinionTex;
+
+
 	
 	void Awake ()
 	{
@@ -142,10 +147,10 @@ public class GameDirector : MonoBehaviour {
 			Ray ray = playerMiniCamera.ScreenPointToRay(Input.mousePosition);
 			//		Physics.SphereCast(/*playerStrong.transform.position*/ Camera.main.transform.position, sphereRadius, /*Camera.main.ScreenPointToRay (Input.mousePosition).direction */ Camera.main.transform.forward, out hit, rayDistance, layermask);
 			bool didHit = Physics.SphereCast(ray, sphereRadius, out hit, Mathf.Infinity, layermask);
-			Debug.DrawRay(playerMiniCamera.transform.position, playerMiniCamera.ScreenPointToRay (Input.mousePosition).direction, Color.black);
+			Debug.DrawRay(playerMini.transform.position, playerMiniCamera.ScreenPointToRay (Input.mousePosition).direction, Color.black);
 			if (didHit && hit.transform.tag == "Player") 
 			{
-				//allows GUI to display that you can see the minion
+				//allows GUI to display that you can see the player
 				canChangeWizzard = true;
 				if(Input.GetButtonDown("Fire3") && canChangeWizzard)
 				{
@@ -224,20 +229,21 @@ public class GameDirector : MonoBehaviour {
 
 		if (canChangeStrong)
 		{
-			GUI.Box(new Rect(120,10,100,20), "Strong Minion");
+//			GUI.Box(new Rect(120,10,100,20), "Strong Minion");
+			GUI.DrawTexture (new Rect ((Screen.width/2),10,100,100), strongMinionTex);
 			
 		}
 		
 		if (canChangeMini)
 		{
-			GUI.Box(new Rect(230,10,100,20), "Mini Minion");
-			
+//			GUI.Box(new Rect(230,50,100,20), "Mini Minion");
+			GUI.DrawTexture (new Rect ((Screen.width/2),10,100,100), miniMinionTex);
 		}
 		
 		if (canChangeWizzard)
 		{
-			GUI.Box(new Rect(10,10,100,20), "Walter");
-			
+//			GUI.Box(new Rect(10,10,100,20), "Walter");
+			GUI.DrawTexture (new Rect ((Screen.width/2),10,100,100), walterTex);
 		}
 	}
 }
