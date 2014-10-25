@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\ShowCursor.cs" />
      <Compile Include="Assets\Scripts\SmoothLookAtWalter.cs" />
      <Compile Include="Assets\Scripts\StartGane.cs" />
+     <Compile Include="Assets\Scripts\Teleporter.cs" />
      <Compile Include="Assets\Scripts\ThirdPersonController.cs" />
      <Compile Include="Assets\Scripts\TrialBridgeTrigger.cs" />
      <Compile Include="Assets\Scripts\TutorialManager.cs" />
