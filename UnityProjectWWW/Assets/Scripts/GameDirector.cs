@@ -39,6 +39,7 @@ public class GameDirector : MonoBehaviour {
 	public Texture strongMinionTex;
 	public Texture miniMinionTex;
 
+	private float transitionTimer;
 
 	
 	void Awake ()
@@ -65,7 +66,7 @@ public class GameDirector : MonoBehaviour {
 	
 	void Update () 
 	{
-
+		transitionTimer += Time.deltaTime;
 		RaycastHit hit;
 		
 		
@@ -81,7 +82,7 @@ public class GameDirector : MonoBehaviour {
 				//allows GUI to display that you can see the minion
 				canChangeStrong = true;
 				// can only change to the minion if he is in sight
-				if(Input.GetButtonDown("Fire3") && canChangeStrong)
+				if(Input.GetButton("Fire2") && canChangeStrong && transitionTimer >= 1.0f)
 				{
 					statusOfPlayer = false;
 					ActivateWizzard(statusOfPlayer);
@@ -89,18 +90,19 @@ public class GameDirector : MonoBehaviour {
 					statusOfPlayer = true;
 					ActivateStrongMinion (statusOfPlayer);
 					MakeAllFalse();
+					transitionTimer = 0;
 				}
 			}
 			else
 			{
-				Debug.Log("In here");
 				canChangeStrong = false;
 			}
+
 			if (didHit && hit.transform.tag == "MiniMinion") 
 			{
 				//allows GUI to display that you can see the minion
 				canChangeMini = true;
-				if(Input.GetButtonDown("Fire3") && canChangeMini)
+				if(Input.GetButton("Fire2") && canChangeMini && transitionTimer >= 1.0f)
 				{
 					// can only change to the minion if he is in sight
 					statusOfPlayer = false;
@@ -109,6 +111,7 @@ public class GameDirector : MonoBehaviour {
 					statusOfPlayer = true;
 					ActivateMiniMinion (statusOfPlayer);
 					MakeAllFalse();
+					transitionTimer = 0;
 				}
 			}
 			else
@@ -119,59 +122,66 @@ public class GameDirector : MonoBehaviour {
 		
 		if(playerStrongCamera.enabled == true)
 		{
-			Ray ray = playerStrongCamera.ScreenPointToRay(Input.mousePosition);
-	//		Physics.SphereCast(/*playerStrong.transform.position*/ Camera.main.transform.position, sphereRadius, /*Camera.main.ScreenPointToRay (Input.mousePosition).direction */ Camera.main.transform.forward, out hit, rayDistance, layermask);
-			bool didHit = Physics.SphereCast(ray, sphereRadius, out hit, Mathf.Infinity, layermask);
-			Debug.DrawRay(playerStrongCamera.transform.position, playerStrongCamera.ScreenPointToRay (Input.mousePosition).direction, Color.black);
 
-//			Debug.Log (hit.transform.tag);
-			if (didHit && hit.transform.tag == "Player") 
+			if(Input.GetButton("Fire2" ) && transitionTimer >= 1.0f)
 			{
-				//allows GUI to display that you can see the minion
-				canChangeWizzard = true;
-				
-				if(Input.GetButtonDown("Fire3") && canChangeWizzard)
-				{
-					// can only change to the minion if he is in sight
-					statusOfPlayer = false;
-					ActivateStrongMinion(statusOfPlayer);
-					statusOfPlayer = true;
-					ActivateWizzard (statusOfPlayer);
-					isWalter = true;
-					MakeAllFalse();
-				}
+				// can only change to the minion if he is in sight
+				statusOfPlayer = false;
+				ActivateStrongMinion(statusOfPlayer);
+				statusOfPlayer = true;
+				ActivateWizzard (statusOfPlayer);
+				isWalter = true;
+				MakeAllFalse();
+				transitionTimer = 0;
 			}
-			else
-			{
-				canChangeWizzard = false;
-			}
+//			Ray ray = playerStrongCamera.ScreenPointToRay(Input.mousePosition);
+//	//		Physics.SphereCast(/*playerStrong.transform.position*/ Camera.main.transform.position, sphereRadius, /*Camera.main.ScreenPointToRay (Input.mousePosition).direction */ Camera.main.transform.forward, out hit, rayDistance, layermask);
+//			bool didHit = Physics.SphereCast(ray, sphereRadius, out hit, Mathf.Infinity, layermask);
+//			Debug.DrawRay(playerStrongCamera.transform.position, playerStrongCamera.ScreenPointToRay (Input.mousePosition).direction, Color.black);
+//
+////			Debug.Log (hit.transform.tag);
+//			if (didHit && hit.transform.tag == "Player") 
+//			{
+//				//allows GUI to display that you can see the minion
+//				canChangeWizzard = true;
+//				
+//
+//			}
+//			else
+//			{
+//				canChangeWizzard = false;
+//			}
 		}
 		
 		if(playerMiniCamera.enabled == true)
 		{
-			Ray ray = playerMiniCamera.ScreenPointToRay(Input.mousePosition);
-			//		Physics.SphereCast(/*playerStrong.transform.position*/ Camera.main.transform.position, sphereRadius, /*Camera.main.ScreenPointToRay (Input.mousePosition).direction */ Camera.main.transform.forward, out hit, rayDistance, layermask);
-			bool didHit = Physics.SphereCast(ray, sphereRadius, out hit, Mathf.Infinity, layermask);
-			Debug.DrawRay(playerMini.transform.position, playerMiniCamera.ScreenPointToRay (Input.mousePosition).direction, Color.black);
-			if (didHit && hit.transform.tag == "Player") 
+
+			if(Input.GetButton("Fire2")&& transitionTimer >= 1.0f)
 			{
-				//allows GUI to display that you can see the player
-				canChangeWizzard = true;
-				if(Input.GetButtonDown("Fire3") && canChangeWizzard)
-				{
-					// can only change to the minion if he is in sight
-					statusOfPlayer = false;
-					ActivateMiniMinion(statusOfPlayer);
-					statusOfPlayer = true;
-					ActivateWizzard (statusOfPlayer);
-					isWalter = true;
-					MakeAllFalse();
-				}
+				Debug.Log ("Fuck this shit");
+				// can only change to the minion if he is in sight
+				statusOfPlayer = false;
+				ActivateMiniMinion(statusOfPlayer);
+				statusOfPlayer = true;
+				ActivateWizzard (statusOfPlayer);
+				isWalter = true;
+				MakeAllFalse();
+				transitionTimer = 0;
 			}
-			else
-			{
-				canChangeWizzard = false;
-			}
+//			Ray ray = playerMiniCamera.ScreenPointToRay(Input.mousePosition);
+//			//		Physics.SphereCast(/*playerStrong.transform.position*/ Camera.main.transform.position, sphereRadius, /*Camera.main.ScreenPointToRay (Input.mousePosition).direction */ Camera.main.transform.forward, out hit, rayDistance, layermask);
+//			bool didHit = Physics.SphereCast(ray, sphereRadius, out hit, Mathf.Infinity, layermask);
+//			Debug.DrawRay(playerMini.transform.position, playerMiniCamera.ScreenPointToRay (Input.mousePosition).direction, Color.black);
+//			if (didHit && hit.transform.tag == "Player") 
+//			{
+//				//allows GUI to display that you can see the player
+//				canChangeWizzard = true;
+//				
+//			}
+//			else
+//			{
+//				canChangeWizzard = false;
+//			}
 		}
 		
 		
@@ -183,7 +193,6 @@ public class GameDirector : MonoBehaviour {
 	
 	void MakeAllFalse ()
 	{
-		Debug.Log ("Stopped in here");
 		canChangeMini = false;
 		canChangeStrong = false;
 		canChangeWizzard = false;
