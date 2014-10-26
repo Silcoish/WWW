@@ -21,12 +21,12 @@ public class MinionMini : MonoBehaviour {
 		RaycastHit hit;
 
 		//deleted RayCast command the has been superceeded by the spherecast command
-//		if(Physics.Raycast(transform.position, Camera.main.ScreenPointToRay (Input.mousePosition).direction, out hit, rayDistance, layersToCheck))
-//		{
+		if(Physics.Raycast(transform.position, Camera.main.ScreenPointToRay (Input.mousePosition).direction, out hit, rayDistance, layersToCheck))
+		{
 
 		//Edited by richard 4.00pm 20/10/14 to include spherecast
-		if(Physics.SphereCast(Camera.main.transform.position, sphereRadius,/* Camera.main.ScreenPointToRay (Input.mousePosition).direction*/ Camera.main.transform.forward , out hit, rayDistance))
-		{
+		//if(Physics.SphereCast(Camera.main.transform.position, sphereRadius,/* Camera.main.ScreenPointToRay (Input.mousePosition).direction*/ Camera.main.transform.forward , out hit, rayDistance))
+		//{
 			// <> //
 
 

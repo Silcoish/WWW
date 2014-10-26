@@ -40,6 +40,7 @@ public class Button : MonoBehaviour {
 
 	public void Activate()
 	{
+		print ("hit");
 		if(isActivated){
 			DeActivate();
 		}

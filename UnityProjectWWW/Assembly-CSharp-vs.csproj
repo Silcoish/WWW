@@ -52,7 +52,7 @@
      <Compile Include="Assets\Characters\Third Person Character\Scripts\AICharacterControl.cs" />
      <Compile Include="Assets\Characters\Third Person Character\Scripts\ThirdPersonCharacter.cs" />
      <Compile Include="Assets\Characters\Third Person Character\Scripts\ThirdPersonUserControl.cs" />
-     <Compile Include="Assets\Clock\Scripts\Clock.cs" />
+     <Compile Include="Assets\Models\Clock\Scripts\Clock.cs" />
      <Compile Include="Assets\Scripts\BridgeMovement.cs" />
      <Compile Include="Assets\Scripts\Button.cs" />
      <Compile Include="Assets\Scripts\DoNotDestroy.cs" />
@@ -74,7 +74,7 @@
      <Compile Include="Assets\Scripts\TrialBridgeTrigger.cs" />
      <Compile Include="Assets\Scripts\TutorialManager.cs" />
      <Compile Include="Assets\TextMeshInspector.cs" />
-     <None Include="Assets\batteries\SciFi_Battery_Pack_free\SCI-fi battery pack FREE.txt" />
+     <None Include="Assets\Models\batteries\SciFi_Battery_Pack_free\SCI-fi battery pack FREE.txt" />
      <None Include="Assets\Characters\Third Person Character\Third Person Character Guidelines.txt" />
      <None Include="Assets\Characters\First Person Character\First Person Character Guidelines.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
