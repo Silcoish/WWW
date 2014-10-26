@@ -10,19 +10,12 @@ public class Button : MonoBehaviour {
 	// index 0 = on noise
 	// index 1 = off noise
 	[SerializeField] AudioClip[] clickSound = new AudioClip[2];
-	Vector3 startPos, endPos;
 
 	public GameObject buttonOn;
 	public GameObject buttonOff;
 
 	public AudioClip doorOpen;
 	public AudioClip doorClosed;
-
-	void Start()
-	{
-		startPos = transform.position;
-		endPos = transform.position - transform.right * 0.1f;
-	}
 
 	void Update()
 	{
