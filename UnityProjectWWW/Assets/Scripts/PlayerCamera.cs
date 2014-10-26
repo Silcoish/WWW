@@ -12,14 +12,24 @@ public class PlayerCamera : MonoBehaviour {
 	// How much we
 	public float heightDamping = 3;
 	public float rotationDamping = 3;
-	
+
+	private int layer1;
+	private int layer2;
+
+	void Awake()
+	{
+		layer1 = LayerMask.NameToLayer ("CameraMain");
+		layer2 = LayerMask.NameToLayer ("Default");
+	}
 	// Use this for initialization
 	void Start () {
+
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		Physics.IgnoreLayerCollision (layer1, layer2);
 		if (target){
 			// Calculate the current rotation angles
 			float wantedRotationAngle = target.eulerAngles.y;

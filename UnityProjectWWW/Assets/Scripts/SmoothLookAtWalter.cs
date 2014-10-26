@@ -20,9 +20,15 @@ public class SmoothLookAtWalter : MonoBehaviour {
 	private Color color;
 	private float alpha = 1.0f;
 	private Transform _myTransform;
+
+	private int layer1;
+	private int layer2;
 	
 	void Awake() {
 		_myTransform = transform;
+
+		layer1 = LayerMask.NameToLayer ("CameraMain");
+		layer2 = LayerMask.NameToLayer ("Default");
 	}
 	
 	// Use this for initialization
@@ -41,6 +47,9 @@ public class SmoothLookAtWalter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		Physics.IgnoreLayerCollision (layer1, layer2);
+
 		
 	}
 	void LateUpdate() {

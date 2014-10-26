@@ -17,9 +17,15 @@ public class MouseOrbitWalter : MonoBehaviour {
 	
 	float x = 0.0f;
 	float y = 0.0f;
+
+	private int layer1;
+	private int layer2;
+
 	void Awake()
 	{
 		Screen.showCursor = false;
+		layer1 = LayerMask.NameToLayer ("CameraMain");
+		layer2 = LayerMask.NameToLayer ("Default");
 
 	}
 	// Use this for initialization
@@ -31,9 +37,13 @@ public class MouseOrbitWalter : MonoBehaviour {
 		// Make the rigid body not change rotation
 		if (rigidbody)
 			rigidbody.freezeRotation = true;
+
 	}
 	
 	void LateUpdate () {
+
+		Physics.IgnoreLayerCollision (layer1, layer2);
+
 		if (target) {
 			x += Input.GetAxis("Mouse X") * xSpeed * distance * 0.02f;
 			y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
