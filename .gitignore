@@ -10,15 +10,15 @@ Library/
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
 ExportedObj/
-*.svd
-*.userprefs
-*.csproj
-*.pidb
-*.suo
-*.sln
-*.user
-*.unityproj
-*.booproj
+UnityProjectWWW\*.svd
+UnityProjectWWW\*.userprefs
+UnityProjectWWW\*.csproj
+UnityProjectWWW\*.pidb
+UnityProjectWWW\*.suo
+UnityProjectWWW\*.sln
+UnityProjectWWW\*.user
+UnityProjectWWW\*.unityproj
+UnityProjectWWW\*.booproj
 
 # ============ #
 # OS generated #
