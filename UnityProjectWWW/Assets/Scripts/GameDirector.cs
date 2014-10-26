@@ -69,7 +69,7 @@ public class GameDirector : MonoBehaviour {
 		RaycastHit hit;
 		
 		
-		if (playerWizzardCamera.enabled == true)
+		if (playerWizzardCamera.enabled == true && isWalter)
 		{
 
 			//sends out a sphere cast and is looking for the mini or heavy minions
@@ -93,6 +93,7 @@ public class GameDirector : MonoBehaviour {
 			}
 			else
 			{
+				Debug.Log("In here");
 				canChangeStrong = false;
 			}
 			if (didHit && hit.transform.tag == "MiniMinion") 
@@ -182,18 +183,20 @@ public class GameDirector : MonoBehaviour {
 	
 	void MakeAllFalse ()
 	{
+		Debug.Log ("Stopped in here");
 		canChangeMini = false;
 		canChangeStrong = false;
 		canChangeWizzard = false;
 	}
 	void ActivateWizzard (bool statusOf)
 	{
-		playerWizzard.GetComponent<ThirdPersonController>().enabled = statusOf;
-		playerWizzardCamera.GetComponent<PlayerCamera>().enabled = statusOf;
+		playerWizzard.GetComponent<FirstPersonCharacter>().enabled = statusOf;
+		playerWizzard.GetComponent<SimpleMouseRotator>().enabled = statusOf;
+		playerWizzardCamera.GetComponent<SimpleMouseRotator>().enabled = statusOf;
 		playerWizzardCamera.GetComponent<AudioListener>().enabled = statusOf;
-		playerWizzardCamera.GetComponent<SmoothLookAtWalter>().enabled = statusOf;
-		playerWizzardCamera.GetComponent<MouseOrbitWalter>().enabled = statusOf;
-		playerWizzardCamera.enabled = statusOf;
+//		playerWizzardCamera.GetComponent<SmoothLookAtWalter>().enabled = statusOf;
+//		playerWizzardCamera.GetComponent<MouseOrbitWalter>().enabled = statusOf;
+//		playerWizzardCamera.enabled = statusOf;
 	}
 	
 	void ActivateStrongMinion (bool statusOf)

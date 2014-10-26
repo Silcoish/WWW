@@ -17,6 +17,9 @@ public class Minion : MonoBehaviour {
 
 	private bool showBox = false;
 
+	//Put in my richard at 9.50 pm 26/10 because the camera.main, might not necessarily be this minion's camera
+	public Camera minionCamera;
+
 	void Start () {
 
 	}
@@ -35,8 +38,8 @@ public class Minion : MonoBehaviour {
 
 	void CheckBox(){
 		RaycastHit hit;
-		// New Spherecasting code inserted by Richard at 3.52 pm 20/10/14
-		if(Physics.SphereCast(Camera.main.transform.position, sphereRadius, /*Camera.main.ScreenPointToRay (Input.mousePosition).direction*/ Camera.main.transform.forward , out hit, pickUpDistance)){
+		// New Spherecasting code inserted by Richard at 9.50 pm 26/10/14
+		if(Physics.SphereCast(minionCamera.transform.position, sphereRadius, /*Camera.main.ScreenPointToRay (Input.mousePosition).direction*/ minionCamera.transform.forward , out hit, pickUpDistance)){
 			if(hit.transform.tag == "HeavyBox")
 				showBox = true;
 			else
