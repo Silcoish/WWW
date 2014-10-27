@@ -7,6 +7,7 @@ public class LoadLevel : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col)
 	{
+		print ("HIT: " + col.gameObject.name);
 		if(id == -1)
 		{
 			Application.LoadLevel(Application.loadedLevel);
