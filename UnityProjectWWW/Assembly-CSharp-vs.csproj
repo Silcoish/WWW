@@ -53,12 +53,14 @@
      <Compile Include="Assets\Characters\Third Person Character\Scripts\ThirdPersonCharacter.cs" />
      <Compile Include="Assets\Characters\Third Person Character\Scripts\ThirdPersonUserControl.cs" />
      <Compile Include="Assets\Models\Clock\Scripts\Clock.cs" />
+     <Compile Include="Assets\Scripts\BouncyBox.cs" />
      <Compile Include="Assets\Scripts\BridgeMovement.cs" />
      <Compile Include="Assets\Scripts\Button.cs" />
      <Compile Include="Assets\Scripts\DoNotDestroy.cs" />
      <Compile Include="Assets\Scripts\Door.cs" />
      <Compile Include="Assets\Scripts\EndLevelItem_Bouncy.cs" />
      <Compile Include="Assets\Scripts\GameDirector.cs" />
+     <Compile Include="Assets\Scripts\HeavyBox.cs" />
      <Compile Include="Assets\Scripts\LoadLevel.cs" />
      <Compile Include="Assets\Scripts\Minion.cs" />
      <Compile Include="Assets\Scripts\MinionMini.cs" />
