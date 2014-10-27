@@ -7,7 +7,7 @@ public class BridgeMovement : MonoBehaviour {
 	public bool goingDown = false;
 	public bool goingUp = false;
 	public float speed;
-
+	public AudioClip bridgeSound;
 
 	public Transform thisSide;  //Closer side of the bridge
 	public Transform otherSide; // other side of the bridge to drag down
@@ -16,13 +16,14 @@ public class BridgeMovement : MonoBehaviour {
 	public float bridgeReturnTimer;
 	public float timeToRetrunTheBridge;
 
-
+	private bool raiseTheBridge = false;
 	
 	void Update () 
 	{
 		bridgeReturnTimer += Time.deltaTime;
 		if(goingDown)
 		{
+			raiseTheBridge = true;
 			//lowers the bridge
 			if(thisSide.eulerAngles.z >= 268)
 			{
@@ -48,8 +49,17 @@ public class BridgeMovement : MonoBehaviour {
 			}
 		}
 
+
+		if (raiseTheBridge)
+		{
+			audio.PlayOneShot (bridgeSound);
+			raiseTheBridge = false;
+
+		}
+
 		if (goingUp)
 		{
+			raiseTheBridge = true;
 			//raises the bridge
 			if(thisSide.eulerAngles.z >= 270 || thisSide.eulerAngles.z <= 2)
 			{
