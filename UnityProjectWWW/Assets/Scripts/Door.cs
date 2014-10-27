@@ -4,6 +4,7 @@ using System.Collections;
 public class Door : MonoBehaviour {
 
 	[SerializeField] bool opened = false;
+	[SerializeField] bool openLeft = true;
 
 	Vector3 startPos;
 	Vector3 endPos;
@@ -11,7 +12,10 @@ public class Door : MonoBehaviour {
 	void Start()
 	{
 		startPos = transform.position;
-		endPos = startPos + transform.forward * 5;
+		if(openLeft)
+			endPos = startPos + transform.forward * (transform.localScale.z - 0.1f);
+		else
+			endPos = startPos - transform.forward * (transform.localScale.z - 0.1f);
 	}
 
 	void Update()
