@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:UnityProjectWWW/Assets/Sounds/portal.wav.meta
 guid: cf69c5503c2a14443b24e9c6cb94a786
-=======
-guid: 6838b7ee1c2fad34bb794e17cd8e7792
->>>>>>> origin/master:UnityProjectWWW/Assets/Sounds/portal.wav.meta
 AudioImporter:
   serializedVersion: 4
   format: -1
