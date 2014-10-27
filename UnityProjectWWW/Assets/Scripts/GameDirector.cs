@@ -205,7 +205,7 @@ public class GameDirector : MonoBehaviour {
 		playerWizzardCamera.GetComponent<AudioListener>().enabled = statusOf;
 //		playerWizzardCamera.GetComponent<SmoothLookAtWalter>().enabled = statusOf;
 //		playerWizzardCamera.GetComponent<MouseOrbitWalter>().enabled = statusOf;
-//		playerWizzardCamera.enabled = statusOf;
+		playerWizzardCamera.enabled = statusOf;
 	}
 	
 	void ActivateStrongMinion (bool statusOf)
