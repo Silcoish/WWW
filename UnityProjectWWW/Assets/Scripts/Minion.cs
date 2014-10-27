@@ -39,7 +39,7 @@ public class Minion : MonoBehaviour {
 	void CheckBox(){
 		RaycastHit hit;
 		// New Spherecasting code inserted by Richard at 9.50 pm 26/10/14
-		if(Physics.SphereCast(minionCamera.transform.position, sphereRadius, /*Camera.main.ScreenPointToRay (Input.mousePosition).direction*/ minionCamera.transform.forward , out hit, pickUpDistance)){
+		if(Physics.SphereCast(minionCamera.transform.position, sphereRadius, minionCamera.transform.forward , out hit, pickUpDistance)){
 			if(hit.transform.tag == "HeavyBox")
 				showBox = true;
 			else
