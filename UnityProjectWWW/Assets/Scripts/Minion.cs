@@ -46,7 +46,7 @@ public class Minion : MonoBehaviour {
 				showBox = false;
 
 
-			if(Input.GetButtonDown("Fire1") && (hit.transform.tag == "HeavyBox" || hit.transform.tag == "BouncyBox" || hit.transform.tag == "NormalBox") && currentBox == null)
+			if(Input.GetButtonDown("Fire2") && (hit.transform.tag == "HeavyBox" || hit.transform.tag == "BouncyBox" || hit.transform.tag == "NormalBox") && currentBox == null)
 				PickUp(hit.transform.gameObject);
 		}
 
@@ -59,7 +59,7 @@ public class Minion : MonoBehaviour {
 
 	void UpdateBox(){
 		currentBox.transform.position = transform.position + transform.forward * 2;
-		if(Input.GetButtonDown("Fire1")){
+		if(Input.GetButtonDown("Fire2")){
 			DropBox();
 		}
 	}
