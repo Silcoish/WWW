@@ -33,7 +33,7 @@ public class Button : MonoBehaviour {
 
 	public void Activate()
 	{
-		Debug.Log ("hit");
+//		Debug.Log ("hit");
 		if(isActivated){
 			DeActivate();
 		}
