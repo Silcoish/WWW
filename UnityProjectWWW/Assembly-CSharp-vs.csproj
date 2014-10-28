@@ -53,6 +53,7 @@
      <Compile Include="Assets\Characters\Third Person Character\Scripts\ThirdPersonCharacter.cs" />
      <Compile Include="Assets\Characters\Third Person Character\Scripts\ThirdPersonUserControl.cs" />
      <Compile Include="Assets\Models\Clock\Scripts\Clock.cs" />
+     <Compile Include="Assets\NextLevel.cs" />
      <Compile Include="Assets\Scripts\BouncyBox.cs" />
      <Compile Include="Assets\Scripts\BridgeMovement.cs" />
      <Compile Include="Assets\Scripts\Button.cs" />
