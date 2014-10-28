@@ -11,7 +11,7 @@ public class TextMeshInspector : Editor {
 	{
 		TextMesh t = (TextMesh)target;
 
-		DrawDefaultInspector();
+		//DrawDefaultInspector();
 
 		string text = t.text;
 
