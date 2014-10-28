@@ -17,18 +17,21 @@ public class Button : MonoBehaviour {
 	public AudioClip doorOpen;
 	public AudioClip doorClosed;
 
+	private float bridgeTimer;
+	public float timeToRaiseBridge;
+
+
 	void Update()
 	{
-//		if(isActivated)
-//		{
-////			transform.position = Vector3.Lerp(transform.position, endPos, 0.5f);
-//
-//		}
-//		else
-//		{
-////			transform.position = Vector3.Lerp(transform.position, startPos, 0.5f);
-//
-//		}
+
+		if(isActivated && isBridgeButton)
+		{
+			bridgeTimer += Time.deltaTime;
+			if(bridgeTimer >= timeToRaiseBridge)
+				DeActivate();
+
+		}
+
 	}
 
 	public void Activate()
@@ -41,7 +44,9 @@ public class Button : MonoBehaviour {
 		{
 			AudioSource.PlayClipAtPoint(clickSound[0], transform.position);
 			buttonOn.animation.Play ("buttonOn");
+			bridgeTimer = 0;
 			isActivated = true;
+
 			if(isBridgeButton)
 			{
 				puzzleElement.SendMessage("LowerBridge", SendMessageOptions.DontRequireReceiver);
