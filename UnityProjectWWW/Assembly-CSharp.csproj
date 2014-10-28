@@ -73,6 +73,7 @@
      <Compile Include="Assets\Scripts\Teleporter.cs" />
      <Compile Include="Assets\Scripts\TrialBridgeTrigger.cs" />
      <Compile Include="Assets\Scripts\TutorialManager.cs" />
+     <Compile Include="Assets\Scripts\TutorialShow.cs" />
      <Compile Include="Assets\Scripts\WalkingSFX.cs" />
      <Compile Include="Assets\TextMeshInspector.cs" />
      <None Include="Assets\Models\batteries\SciFi_Battery_Pack_free\SCI-fi battery pack FREE.txt" />

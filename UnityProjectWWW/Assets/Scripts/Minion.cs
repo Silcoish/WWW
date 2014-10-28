@@ -17,10 +17,12 @@ public class Minion : MonoBehaviour {
 	private Rect position;
 
 	void Start () {
-		position = new Rect ((Screen.width  - (hitTexture.width / 1.25f)) / 2, 
-		                     (Screen.height - hitTexture.height / 1.25f ) / 2, 
-		                     hitTexture.width, 
-		                     hitTexture.height);
+		// Removed by Corey Underdown //
+		// Sorry, were giving me errors //
+//		position = new Rect ((Screen.width  - (hitTexture.width / 1.25f)) / 2, 
+//		                     (Screen.height - hitTexture.height / 1.25f ) / 2, 
+//		                     hitTexture.width, 
+//		                     hitTexture.height);
 	}
 
 	void Update () {
