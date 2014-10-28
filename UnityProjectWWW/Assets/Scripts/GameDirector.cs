@@ -126,6 +126,7 @@ public class GameDirector : MonoBehaviour {
 
 	void ActivateWizzard (bool statusOf)
 	{
+		playerWizzard.rigidbody.freezeRotation = statusOf;
 		playerWizzard.GetComponent<FirstPersonCharacter>().enabled = statusOf;
 		playerWizzard.GetComponent<SimpleMouseRotator>().enabled = statusOf;
 		playerWizzardCamera.GetComponent<SimpleMouseRotator>().enabled = statusOf;
@@ -135,6 +136,7 @@ public class GameDirector : MonoBehaviour {
 	
 	void ActivateStrongMinion (bool statusOf)
 	{
+		playerStrong.rigidbody.freezeRotation = statusOf;
 		playerStrong.GetComponent<FirstPersonCharacter>().enabled = statusOf;
 		playerStrong.GetComponent<SimpleMouseRotator>().enabled = statusOf;
 		playerStrongCamera.GetComponent<SimpleMouseRotator>().enabled = statusOf;
@@ -144,6 +146,7 @@ public class GameDirector : MonoBehaviour {
 	
 	void ActivateMiniMinion (bool statusOf)
 	{
+		playerMini.rigidbody.freezeRotation = statusOf;
 		playerMini.GetComponent<FirstPersonCharacter>().enabled = statusOf;
 		playerMini.GetComponent<SimpleMouseRotator>().enabled = statusOf;
 		playerMiniCamera.GetComponent<SimpleMouseRotator>().enabled = statusOf;
@@ -155,17 +158,7 @@ public class GameDirector : MonoBehaviour {
 	
 	void OnGUI()
 	{
-		if(isWalter)
-		{
-			positionW = new Rect ((Screen.width  - (crosshairTexture.width / 1.25f)) / 2, 
-			                      (Screen.height  - (crosshairTexture.height / 1.25f )) / 2, 
-			                      crosshairTexture.width, 
-			                      crosshairTexture.height);
-			GUI.DrawTexture(positionW, crosshairTexture);
-			
-		}
-		else
-			GUI.DrawTexture(position, crosshairTexture);
+
 
 
 		if (playerStrongCamera.enabled == true)
