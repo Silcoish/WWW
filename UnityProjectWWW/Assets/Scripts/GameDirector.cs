@@ -155,17 +155,7 @@ public class GameDirector : MonoBehaviour {
 	
 	void OnGUI()
 	{
-		if(isWalter)
-		{
-			positionW = new Rect ((Screen.width  - (crosshairTexture.width / 1.25f)) / 2, 
-			                      (Screen.height  - (crosshairTexture.height / 1.25f )) / 2, 
-			                      crosshairTexture.width, 
-			                      crosshairTexture.height);
-			GUI.DrawTexture(positionW, crosshairTexture);
-			
-		}
-		else
-			GUI.DrawTexture(position, crosshairTexture);
+
 
 
 		if (playerStrongCamera.enabled == true)

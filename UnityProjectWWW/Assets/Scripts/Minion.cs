@@ -12,8 +12,15 @@ public class Minion : MonoBehaviour {
 
 	private bool showBox = false;
 
-	void Start () {
+	public Texture2D hitTexture;
+	public Texture2D missTexture;
+	private Rect position;
 
+	void Start () {
+		position = new Rect ((Screen.width  - (hitTexture.width / 1.25f)) / 2, 
+		                     (Screen.height - hitTexture.height / 1.25f ) / 2, 
+		                     hitTexture.width, 
+		                     hitTexture.height);
 	}
 
 	void Update () {
@@ -67,10 +74,14 @@ public class Minion : MonoBehaviour {
 		currentBox.transform.position = transform.position + transform.forward * 2;
 		currentBox.GetComponent<Rigidbody>().useGravity = false;
 	}
+
 	void OnGUI ()
 	{
-
+		
 		if(showBox)
-			GUI.Box(new Rect(120,10,100,20), "BOX");
+			GUI.DrawTexture (new Rect (position), hitTexture);
+		else
+			GUI.DrawTexture (new Rect (position), missTexture);
+		
 	}
 }
