@@ -46,13 +46,14 @@ public class BridgeMovement : MonoBehaviour {
 			{
 				goingUp = true;
 				startTheTimer = false;
+				audio.PlayOneShot (bridgeSound);
 			}
 		}
 
 
 		if (raiseTheBridge)
 		{
-			audio.PlayOneShot (bridgeSound);
+
 			raiseTheBridge = false;
 
 		}
@@ -78,6 +79,7 @@ public class BridgeMovement : MonoBehaviour {
 	public void LowerBridge()
 	{
 		goingDown = true;
+		audio.PlayOneShot (bridgeSound);
 	}
 
 

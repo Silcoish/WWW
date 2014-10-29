@@ -126,6 +126,7 @@ public class GameDirector : MonoBehaviour {
 
 	void ActivateWizzard (bool statusOf)
 	{
+//        playerWizzard.rigidbody.freezePosition = statusOf;
 		playerWizzard.rigidbody.freezeRotation = statusOf;
 		playerWizzard.GetComponent<FirstPersonCharacter>().enabled = statusOf;
 		playerWizzard.GetComponent<SimpleMouseRotator>().enabled = statusOf;
@@ -136,6 +137,7 @@ public class GameDirector : MonoBehaviour {
 	
 	void ActivateStrongMinion (bool statusOf)
 	{
+ //       playerStrong.rigidbody.freezePosition = statusOf;
 		playerStrong.rigidbody.freezeRotation = statusOf;
 		playerStrong.GetComponent<FirstPersonCharacter>().enabled = statusOf;
 		playerStrong.GetComponent<SimpleMouseRotator>().enabled = statusOf;
@@ -146,6 +148,7 @@ public class GameDirector : MonoBehaviour {
 	
 	void ActivateMiniMinion (bool statusOf)
 	{
+ //       playerMini.rigidbody.freezePosition = statusOf;
 		playerMini.rigidbody.freezeRotation = statusOf;
 		playerMini.GetComponent<FirstPersonCharacter>().enabled = statusOf;
 		playerMini.GetComponent<SimpleMouseRotator>().enabled = statusOf;
