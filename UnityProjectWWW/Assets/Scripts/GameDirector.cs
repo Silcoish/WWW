@@ -30,11 +30,11 @@ public class GameDirector : MonoBehaviour {
 
 	private float transitionTimer;
 
+	public bool showingTutorial = false;
+
 	
 	void Awake ()
 	{
-
-
 		statusOfPlayer = false;
 		ActivateStrongMinion (statusOfPlayer);
 		ActivateMiniMinion (statusOfPlayer);
@@ -42,13 +42,11 @@ public class GameDirector : MonoBehaviour {
 	
 	
 	void Start () {
-
 		position = new Rect ((Screen.width  - (crosshairTexture.width / 1.25f)) / 2, 
 		                     (Screen.height - crosshairTexture.height / 1.25f ) / 2, 
 		                     crosshairTexture.width, 
 		                     crosshairTexture.height);
-
-			}
+	}
 	
 	void Update () 
 	{
@@ -58,28 +56,30 @@ public class GameDirector : MonoBehaviour {
 		if (playerWizzardCamera.enabled == true && isWalter)
 		{
 
-
-			if(Input.GetButton("Fire1") && transitionTimer >= 1.0f)
+			if(!showingTutorial)
 			{
-				statusOfPlayer = false;
-				ActivateWizzard(statusOfPlayer);
-				isWalter = false;
-				statusOfPlayer = true;
-				ActivateStrongMinion (statusOfPlayer);
-				transitionTimer = 0;
-			}
+				if(Input.GetButton("Fire1") && transitionTimer >= 1.0f)
+				{
+					statusOfPlayer = false;
+					ActivateWizzard(statusOfPlayer);
+					isWalter = false;
+					statusOfPlayer = true;
+					ActivateStrongMinion (statusOfPlayer);
+					transitionTimer = 0;
+				}
 
 
 
-			if(Input.GetButton("Fire2") && transitionTimer >= 1.0f)
-			{
-				// can only change to the minion if he is in sight
-				statusOfPlayer = false;
-				ActivateWizzard(statusOfPlayer);
-				isWalter = false;
-				statusOfPlayer = true;
-				ActivateMiniMinion (statusOfPlayer);
-				transitionTimer = 0;
+				if(Input.GetButton("Fire2") && transitionTimer >= 1.0f)
+				{
+					// can only change to the minion if he is in sight
+					statusOfPlayer = false;
+					ActivateWizzard(statusOfPlayer);
+					isWalter = false;
+					statusOfPlayer = true;
+					ActivateMiniMinion (statusOfPlayer);
+					transitionTimer = 0;
+				}
 			}
 
 		}
