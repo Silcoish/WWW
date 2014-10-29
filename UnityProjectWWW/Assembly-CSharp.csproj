@@ -82,6 +82,7 @@
      <Compile Include="Assets\Scripts\TutorialManager.cs" />
      <Compile Include="Assets\Scripts\TutorialShow.cs" />
      <Compile Include="Assets\Scripts\WalkingSFX.cs" />
+     <Compile Include="Assets\restartGame.cs" />
      <None Include="Assets\Models\batteries\SciFi_Battery_Pack_free\SCI-fi battery pack FREE.txt" />
      <None Include="Assets\Characters\Third Person Character\Third Person Character Guidelines.txt" />
      <None Include="Assets\Characters\First Person Character\First Person Character Guidelines.txt" />
