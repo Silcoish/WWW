@@ -10,11 +10,14 @@ public class Minion : MonoBehaviour {
 	GameObject currentBox;
 	[SerializeField] Camera myCamera;
 
-	private bool showBox = false;
+//	private bool showBox = false;
 
-	public Texture2D hitTexture;
-	public Texture2D missTexture;
-	private Rect position;
+//	public Texture2D hitTexture;
+//	public Texture2D missTexture;
+//	private Rect position;
+
+	public Transform pickUpPoint;
+
 
 	void Start () {
 		// Removed by Corey Underdown //
@@ -39,10 +42,10 @@ public class Minion : MonoBehaviour {
 
 		//if(Physics.SphereCast(minionCamera.transform.position, sphereRadius, minionCamera.ScreenPointToRay (Input.mousePosition).direction , out hit, pickUpDistance)){
 		if(Physics.Raycast(myCamera.transform.position, myCamera.ScreenPointToRay (Input.mousePosition).direction, out hit, pickUpDistance, layersToCheck)){
-			if(hit.transform.tag == "HeavyBox")
-				showBox = true;
-			else
-				showBox = false;
+//			if(hit.transform.tag == "HeavyBox")
+//				showBox = true;
+//			else
+//				showBox = false;
 
 
 			if(Input.GetButtonDown("Fire2") && (hit.transform.tag == "HeavyBox" || hit.transform.tag == "BouncyBox" || hit.transform.tag == "NormalBox") && currentBox == null)
@@ -57,7 +60,7 @@ public class Minion : MonoBehaviour {
 	}
 
 	void UpdateBox(){
-		currentBox.transform.position = transform.position + transform.forward * 2;
+		currentBox.transform.position = pickUpPoint.transform.position + pickUpPoint.transform.forward * 2;
 		if(Input.GetButtonDown("Fire2")){
 			DropBox();
 		}
@@ -72,18 +75,18 @@ public class Minion : MonoBehaviour {
 	void PickUp(GameObject go){
 		print ("pickup: " + go.transform.name);
 		currentBox = go;
-		currentBox.transform.parent = gameObject.transform;
-		currentBox.transform.position = transform.position + transform.forward * 2;
+		currentBox.transform.parent = pickUpPoint.transform;
+		currentBox.transform.position = pickUpPoint.transform.position + pickUpPoint.transform.forward * 2;
 		currentBox.GetComponent<Rigidbody>().useGravity = false;
 	}
 
 	void OnGUI ()
 	{
 		
-		if(showBox)
-			GUI.DrawTexture (new Rect (position), hitTexture);
-		else
-			GUI.DrawTexture (new Rect (position), missTexture);
+//		if(showBox)
+//			GUI.DrawTexture (new Rect (position), hitTexture);
+//		else
+//			GUI.DrawTexture (new Rect (position), missTexture);
 		
 	}
 }

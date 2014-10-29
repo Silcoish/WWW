@@ -9,10 +9,10 @@ public class MinionMini : MonoBehaviour {
 	[SerializeField] LayerMask layersToCheck;
 	public Camera myCamera;
 
-	public Texture2D hitTexture;
-	public Texture2D missTexture;
-	private bool showButton = false;
-	private Rect position;
+//	public Texture2D hitTexture;
+//	public Texture2D missTexture;
+//	private bool showButton = false;
+//	private Rect position;
 
 
 	void Start()
@@ -39,22 +39,22 @@ public class MinionMini : MonoBehaviour {
 
 			if(Input.GetButtonDown("Fire2") && hit.transform.tag == "Button")
 			{
-				showButton = true;
+//				showButton = true;
 				hit.transform.gameObject.GetComponent<Button>().Activate();
 			}
-			else
-				showButton = false;
+//			else
+//				showButton = false;
 
 		}
 	}
 
-	void OnGUI ()
-	{
-		
-		if(showButton)
-			GUI.DrawTexture (new Rect (position), hitTexture);
-		else
-			GUI.DrawTexture (new Rect (position), missTexture);
-
-	}
+//	void OnGUI ()
+//	{
+//		
+//		if(showButton)
+//			GUI.DrawTexture (new Rect (position), hitTexture);
+//		else
+//			GUI.DrawTexture (new Rect (position), missTexture);
+//
+//	}
 }

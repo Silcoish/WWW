@@ -4,10 +4,35 @@ ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Box001
+    100004: Cylinder001
+    100006: Cylinder003
+    100008: Cylinder004
+    100010: Sphere001
     400000: //RootNode
+    400002: Box001
+    400004: Cylinder001
+    400006: Cylinder003
+    400008: Cylinder004
+    400010: Sphere001
     2300000: //RootNode
+    2300002: Box001
+    2300004: Cylinder001
+    2300006: Cylinder003
+    2300008: Cylinder004
+    2300010: Sphere001
     3300000: //RootNode
+    3300002: Box001
+    3300004: Cylinder001
+    3300006: Cylinder003
+    3300008: Cylinder004
+    3300010: Sphere001
     4300000: HeavyMinion
+    4300002: Box001
+    4300004: Cylinder001
+    4300006: Sphere001
+    4300008: Cylinder003
+    4300010: Cylinder004
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -25,17 +50,17 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: .000600000028
+    globalScale: .00150000001
     meshCompression: 0
     addColliders: 0
-    importBlendShapes: 1
+    importBlendShapes: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
+    optimizeMeshForGPU: 0
     weldVertices: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001

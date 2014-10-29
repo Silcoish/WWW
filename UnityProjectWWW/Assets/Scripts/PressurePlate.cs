@@ -7,6 +7,7 @@ public class PressurePlate : MonoBehaviour {
 	[SerializeField] bool isBarricade;
 	[SerializeField] GameObject linkedObject;
 
+	public AudioClip boomBoomShakeTheRoom;
 	Vector3 startPos;
 	Vector3 endPos;
 
@@ -36,6 +37,7 @@ public class PressurePlate : MonoBehaviour {
 
 				if(isBarricade)
 				{
+					audio.PlayOneShot (boomBoomShakeTheRoom);
 					Destroy(linkedObject);
 				}
 			}

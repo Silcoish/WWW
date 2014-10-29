@@ -17,7 +17,7 @@ public class GameDirector : MonoBehaviour {
 
 	private bool isWalter = true;
 	//crosshair
-	private Rect position;
+//	private Rect position;
 	private Rect positionW;
 
 	public Texture2D crosshairTexture;
@@ -32,20 +32,27 @@ public class GameDirector : MonoBehaviour {
 
 	public bool showingTutorial = false;
 
+//	private RigidbodyConstraints wizzardConstraints;
+//	private RigidbodyConstraints miniConstraints;
+//	private RigidbodyConstraints heavyConstraints;
+
 	
 	void Awake ()
 	{
 		statusOfPlayer = false;
 		ActivateStrongMinion (statusOfPlayer);
 		ActivateMiniMinion (statusOfPlayer);
+//		wizzardConstraints = playerWizzard.rigidbody.constraints;
+//		miniConstraints = playerMini.rigidbody.constraints;
+//		heavyConstraints = playerStrong.rigidbody.constraints;
 	}
 	
 	
 	void Start () {
-		position = new Rect ((Screen.width  - (crosshairTexture.width / 1.25f)) / 2, 
-		                     (Screen.height - crosshairTexture.height / 1.25f ) / 2, 
-		                     crosshairTexture.width, 
-		                     crosshairTexture.height);
+//		position = new Rect ((Screen.width  - (crosshairTexture.width / 1.25f)) / 2, 
+//		                     (Screen.height - crosshairTexture.height / 1.25f ) / 2, 
+//		                     crosshairTexture.width, 
+//		                     crosshairTexture.height);
 	}
 	
 	void Update () 
@@ -126,8 +133,11 @@ public class GameDirector : MonoBehaviour {
 
 	void ActivateWizzard (bool statusOf)
 	{
-//        playerWizzard.rigidbody.freezePosition = statusOf;
-		playerWizzard.rigidbody.freezeRotation = statusOf;
+//		if(statusOf == false)
+//			playerWizzard.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+//		else
+//			playerWizzard.rigidbody.constraints = wizzardConstraints;
+
 		playerWizzard.GetComponent<FirstPersonCharacter>().enabled = statusOf;
 		playerWizzard.GetComponent<SimpleMouseRotator>().enabled = statusOf;
 		playerWizzardCamera.GetComponent<SimpleMouseRotator>().enabled = statusOf;
@@ -137,8 +147,12 @@ public class GameDirector : MonoBehaviour {
 	
 	void ActivateStrongMinion (bool statusOf)
 	{
- //       playerStrong.rigidbody.freezePosition = statusOf;
-		playerStrong.rigidbody.freezeRotation = statusOf;
+//		if(statusOf == false)
+//			playerStrong.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+//		else
+//			playerStrong.rigidbody.constraints = heavyConstraints;
+
+
 		playerStrong.GetComponent<FirstPersonCharacter>().enabled = statusOf;
 		playerStrong.GetComponent<SimpleMouseRotator>().enabled = statusOf;
 		playerStrongCamera.GetComponent<SimpleMouseRotator>().enabled = statusOf;
@@ -148,8 +162,11 @@ public class GameDirector : MonoBehaviour {
 	
 	void ActivateMiniMinion (bool statusOf)
 	{
- //       playerMini.rigidbody.freezePosition = statusOf;
-		playerMini.rigidbody.freezeRotation = statusOf;
+//		if(statusOf == false)
+//			playerMini.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+//		else
+//			playerMini.rigidbody.constraints = miniConstraints;
+
 		playerMini.GetComponent<FirstPersonCharacter>().enabled = statusOf;
 		playerMini.GetComponent<SimpleMouseRotator>().enabled = statusOf;
 		playerMiniCamera.GetComponent<SimpleMouseRotator>().enabled = statusOf;
