@@ -10,15 +10,15 @@ Library/
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
 ExportedObj/
-UnityProjectWWW\*.svd
-UnityProjectWWW\*.userprefs
-UnityProjectWWW\*.csproj
-UnityProjectWWW\*.pidb
-UnityProjectWWW\*.suo
-UnityProjectWWW\*.sln
-UnityProjectWWW\*.user
-UnityProjectWWW\*.unityproj
-UnityProjectWWW\*.booproj
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
 
 # ============ #
 # OS generated #
@@ -31,3 +31,9 @@ UnityProjectWWW\*.booproj
 Icon?
 ehthumbs.db
 Thumbs.db
+
+*.dll
+*.exe
+UnityProjectWWW/Library/
+UnityProjectWWW/Temp/
+UnityProjectWWW/Builds/
