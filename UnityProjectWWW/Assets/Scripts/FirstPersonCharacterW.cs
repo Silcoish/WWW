@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FirstPersonCharacter : MonoBehaviour
+public class FirstPersonCharacterW : MonoBehaviour
 {
-	public static FirstPersonCharacter inst;
-
+	public static FirstPersonCharacterW inst;
+	
 	[SerializeField] private float runSpeed = 8f;                                       // The speed at which we want the character to move
 	[SerializeField] private float strafeSpeed = 4f;                                    // The speed at which we want the character to be able to strafe
 	[SerializeField] private float jumpPower = 5f;                                      // The power behind the characters jump. increase for higher jumps
@@ -14,7 +14,7 @@ public class FirstPersonCharacter : MonoBehaviour
 	#endif
 	[SerializeField] private AdvancedSettings advanced = new AdvancedSettings();        // The container for the advanced settings ( done this way so that the advanced setting are exposed under a foldout
 	[SerializeField] private bool lockCursor = true;
-
+	
 	[System.Serializable]
 	public class AdvancedSettings                                                       // The advanced settings
 	{
@@ -39,7 +39,7 @@ public class FirstPersonCharacter : MonoBehaviour
 		Screen.lockCursor = lockCursor;
 		rayHitComparer = new RayHitComparer();
 	}
-
+	
 	void OnDisable()
 	{
 		Screen.lockCursor = false;
@@ -57,19 +57,19 @@ public class FirstPersonCharacter : MonoBehaviour
 	public void FixedUpdate ()
 	{
 		float speed = runSpeed;
-
+		
 		// Read input
-#if CROSS_PLATFORM_INPUT
+		#if CROSS_PLATFORM_INPUT
 		float h = CrossPlatformInput.GetAxis("Horizontal");
 		float v = CrossPlatformInput.GetAxis("Vertical");
 		bool jump = CrossPlatformInput.GetButton("Jump");
-#else
+		#else
 		float h = Input.GetAxis("Horizontal");
 		float v = Input.GetAxis("Vertical");
 		bool jump = Input.GetButton("Jump");
-#endif
-
-#if !MOBILE_INPUT
+		#endif
+		
+		#if !MOBILE_INPUT
 		
 		// On standalone builds, walk/run speed is modified by a key press.
 		// We select appropriate speed based on whether we're walking by default, and whether the walk/run toggle button is pressed:
@@ -78,11 +78,11 @@ public class FirstPersonCharacter : MonoBehaviour
 		
 		// On mobile, it's controlled in analogue fashion by the v input value, and therefore needs no special handling.
 		
-
-#endif
+		
+		#endif
 		
 		input = new Vector2( h, v );
-
+		
 		// normalize input if it exceeds 1 in combined length:
 		if (input.sqrMagnitude > 1) input.Normalize();
 		
@@ -91,13 +91,14 @@ public class FirstPersonCharacter : MonoBehaviour
 		
 		// preserving current y velocity (for falling, gravity)
 		float yv = rigidbody.velocity.y;
-		
+		Debug.Log (grounded);
 		// add jump power
 		if (grounded && jump) {
 			yv += jumpPower;
 			grounded = false;
 		}
-		
+		Debug.Log (grounded);
+
 		// Set the rigidbody's velocity according to the ground angle and desired move
 		rigidbody.velocity = desiredMove + Vector3.up * yv;
 		
@@ -108,7 +109,7 @@ public class FirstPersonCharacter : MonoBehaviour
 		} else {
 			collider.material = advanced.highFrictionMaterial;
 		}
-
+		
 		
 		// Ground Check:
 		
@@ -144,12 +145,12 @@ public class FirstPersonCharacter : MonoBehaviour
 		}
 		
 		Debug.DrawRay(ray.origin, ray.direction * capsule.height * jumpRayLength, grounded ? Color.green : Color.red );
-
-
+		
+		
 		// add extra gravity
 		rigidbody.AddForce(Physics.gravity * (advanced.gravityMultiplier - 1));
 	}
-
+	
 	
 	//used for comparing distances
 	class RayHitComparer: IComparer

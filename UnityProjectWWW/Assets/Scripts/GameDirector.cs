@@ -67,9 +67,11 @@ public class GameDirector : MonoBehaviour {
 			{
 				if(Input.GetButton("Fire1") && transitionTimer >= 1.0f)
 				{
+					playerWizzard.rigidbody.freezeRotation = true;
 					statusOfPlayer = false;
 					ActivateWizzard(statusOfPlayer);
 					isWalter = false;
+					playerStrong.rigidbody.freezeRotation = false;
 					statusOfPlayer = true;
 					ActivateStrongMinion (statusOfPlayer);
 					transitionTimer = 0;
@@ -80,9 +82,11 @@ public class GameDirector : MonoBehaviour {
 				if(Input.GetButton("Fire2") && transitionTimer >= 1.0f)
 				{
 					// can only change to the minion if he is in sight
+					playerWizzard.rigidbody.freezeRotation = true;
 					statusOfPlayer = false;
 					ActivateWizzard(statusOfPlayer);
 					isWalter = false;
+					playerMini.rigidbody.freezeRotation = false;
 					statusOfPlayer = true;
 					ActivateMiniMinion (statusOfPlayer);
 					transitionTimer = 0;
@@ -97,9 +101,11 @@ public class GameDirector : MonoBehaviour {
 			if(Input.GetButton("Fire1" ) && transitionTimer >= 1.0f)
 			{
 				// can only change to the minion if he is in sight
+				playerStrong.rigidbody.freezeRotation = true;
 				statusOfPlayer = false;
 				ActivateStrongMinion(statusOfPlayer);
 				statusOfPlayer = true;
+				playerWizzard.rigidbody.freezeRotation = false;
 				ActivateWizzard (statusOfPlayer);
 				isWalter = true;
 				transitionTimer = 0;
@@ -112,11 +118,12 @@ public class GameDirector : MonoBehaviour {
 
 			if(Input.GetButton("Fire1")&& transitionTimer >= 1.0f)
 			{
-
+				playerMini.rigidbody.freezeRotation = true;
 				statusOfPlayer = false;
 				ActivateMiniMinion(statusOfPlayer);
 				statusOfPlayer = true;
 				ActivateWizzard (statusOfPlayer);
+				playerWizzard.rigidbody.freezeRotation = false;
 				isWalter = true;
 				transitionTimer = 0;
 			}

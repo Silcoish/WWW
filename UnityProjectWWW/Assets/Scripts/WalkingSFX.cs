@@ -12,10 +12,12 @@ public class WalkingSFX : MonoBehaviour {
 	//Lists of audioclips
 	public List<AudioClip> stepSource;
 
+	private bool isGrounded;
+	public GameObject target;
 
 	void Start()
 	{
-
+		isGrounded = FirstPersonCharacter.inst.grounded;
 
 	}
 
@@ -24,9 +26,9 @@ public class WalkingSFX : MonoBehaviour {
 		stepTimer += Time.deltaTime;
 
 
-		if(Input.GetAxis("Horizontal")!= 0 || Input.GetAxis("Vertical") != 0)
+		if((Input.GetAxis("Horizontal")>= 0.5 || Input.GetAxis("Horizontal")<= -0.5 )|| (Input.GetAxis("Vertical") >= 0.5 || Input.GetAxis("Vertical") <= -0.5) && isGrounded)
 		{
-
+			//Debug.Log(isGrounded);  Always True :/
 			if (myCamera.enabled == true && stepTimer >= timeTillNextStep)
 			{
 				GetRandomSound (stepSource);
